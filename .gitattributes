@@ -1,0 +1,25 @@
+# Everything is LF in the repo and in the working tree. Containers and shell scripts break on
+# CRLF, and lab folders are bind-mounted into containers as-is.
+* text=auto eol=lf
+*.sh text eol=lf
+
+# Binary files: never touch line endings, never diff as text.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.tgz binary
+*.jar binary
+*.class binary
+*.p12 binary
+*.pfx binary
+*.jks binary
+*.der binary
+*.woff binary
+*.woff2 binary
+*.ttf binary

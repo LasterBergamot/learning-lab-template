@@ -1,0 +1,21 @@
+name: Question
+description: An open question that came up while learning, to answer later.
+title: "Q: <question>"
+labels: ["type:question"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true
+  - type: input
+    id: context
+    attributes:
+      label: Where it came up
+      placeholder: labs/eventing/kafka, session of 2026-11-24
+  - type: textarea
+    id: guess
+    attributes:
+      label: My current guess
+      description: Write it before looking it up.

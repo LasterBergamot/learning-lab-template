@@ -1,0 +1,44 @@
+name: Check
+
+# The same scripts and doc checks the learner runs locally on Linux (Omarchy), run on every push
+# and pull request.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Scripts and docs
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
+
+      - name: Scripts parse
+        run: |
+          for f in scripts/*.sh; do
+            bash -n "$f"
+            echo "ok: $f"
+          done
+
+      - name: Shell lint
+        # ubuntu-latest ships ShellCheck. Locally: bash scripts/prereqs.sh --install provides it.
+        run: shellcheck scripts/*.sh
+
+      - name: Prerequisites (CI set)
+        run: bash scripts/prereqs.sh --ci
+
+      - name: Docs (links, Status lines, track links)
+        run: python3 scripts/check_docs.py
