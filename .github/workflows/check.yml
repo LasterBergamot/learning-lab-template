@@ -1,0 +1,58 @@
+name: Check
+
+# Keeps both platforms in sync: the same scripts and doc checks run on Linux (like Omarchy) and on
+# Windows in Git Bash (like the Windows 11 machine). A change that works on only one of them fails.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Scripts and docs (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        # On windows-latest this is Git Bash, the shell the learner uses on Windows 11.
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
+
+      - name: Scripts parse
+        run: |
+          for f in scripts/*.sh; do
+            bash -n "$f"
+            echo "ok: $f"
+          done
+
+      - name: Shell lint
+        # ShellCheck output is the same on both platforms, so one run is enough; ubuntu-latest
+        # ships it. Locally: bash scripts/prereqs.sh --install provides it (mise, pacman, winget).
+        if: runner.os == 'Linux'
+        run: shellcheck scripts/*.sh
+
+      - name: Prerequisites (CI set)
+        run: bash scripts/prereqs.sh --ci
+
+      - name: Docs (links, Status lines, track links)
+        # python3 on Linux; on Windows it may be "python" (and "python3" a Store alias stub).
+        run: |
+          PY=''
+          for c in python3 python; do
+            if command -v "$c" >/dev/null && "$c" --version 2>&1 | grep -q '^Python 3'; then PY=$c; break; fi
+          done
+          [ -n "$PY" ] || { echo "::error::no Python 3 found"; exit 1; }
+          "$PY" scripts/check_docs.py

@@ -1,0 +1,67 @@
+name: Lab
+description: A hands-on lab under labs/<track>/<lab>/. The AI writes the brief; you write the code.
+title: "Lab: <track>/<lab>"
+labels: ["type:lab"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One lab = one folder under `labs/<track>/<lab>/`, started from `labs/_template/`.
+        Add exactly one `track:*`, one `level:*` and one `priority:*` label after creating it.
+        Prerequisites become **blocked-by** relationships, not text only.
+  - type: input
+    id: path
+    attributes:
+      label: Lab folder
+      placeholder: labs/security/tls-pki
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What you can do or explain after the lab, and why it lasts.
+    validations:
+      required: true
+  - type: textarea
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      description: Labs or concepts to learn first (link the issues).
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Isolation tier
+      options:
+        - T0 Toolchain (mise / uv)
+        - T1 Container (compose)
+        - T2 Dev container
+        - T3 VM
+        - T4 Cluster (kind)
+        - T5 Cloud (emulator first, then free tier or trial)
+    validations:
+      required: true
+  - type: checkboxes
+    id: platforms
+    attributes:
+      label: Platforms to test on
+      options:
+        - label: Linux / Docker
+        - label: Windows 11 / Podman (Git Bash)
+  - type: input
+    id: cost
+    attributes:
+      label: Resource cost
+      placeholder: "RAM ~2 GB, disk ~1.5 GB, trial: none"
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance
+      description: Observable outcomes.
+      value: |
+        - [ ] I can explain <concept> without notes
+        - [ ] I built <thing>
+        - [ ] I broke it on purpose and fixed it
+        - [ ] Teardown leaves nothing running (`docker`/`podman system df` back to before)
+    validations:
+      required: true

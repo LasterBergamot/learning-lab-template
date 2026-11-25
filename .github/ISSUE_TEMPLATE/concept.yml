@@ -1,0 +1,33 @@
+name: Concept
+description: A concept to understand without building a lab (theory, a paper, a spec).
+title: "Concept: <name>"
+labels: ["type:concept"]
+body:
+  - type: textarea
+    id: concept
+    attributes:
+      label: Concept
+      description: What it is in one sentence, in your own words (fine to be wrong at first).
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters
+  - type: textarea
+    id: questions
+    attributes:
+      label: Guiding questions
+      description: The questions you want to be able to answer.
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: Official docs, specs, books, papers.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance
+      value: |
+        - [ ] I can explain it to someone else in five minutes
+        - [ ] Its recall questions are in docs/Review-Queue.md

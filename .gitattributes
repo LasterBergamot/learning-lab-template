@@ -1,0 +1,31 @@
+# Everything is LF in the repo and in the working tree, on Linux and on Windows (Git Bash).
+# Containers and shell scripts break on CRLF, and a Windows checkout is bind-mounted into
+# Podman containers as-is.
+* text=auto eol=lf
+*.sh text eol=lf
+
+# Windows-only launchers keep CRLF, which cmd.exe and PowerShell expect.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files: never touch line endings, never diff as text.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.tgz binary
+*.jar binary
+*.class binary
+*.p12 binary
+*.pfx binary
+*.jks binary
+*.der binary
+*.woff binary
+*.woff2 binary
+*.ttf binary

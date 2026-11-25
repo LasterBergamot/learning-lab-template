@@ -1,0 +1,640 @@
+lockfile_version: '1'
+apm_version: 0.35.0
+dependencies:
+- repo_url: lasterbergamot/ai-common
+  materialization_repo_url: LasterBergamot/ai-common
+  name: learning
+  host: github.com
+  resolved_commit: 580731e3a89c79dc7069eb8f5871f1ee65a9755c
+  resolved_ref: v0.3.0
+  version: 0.2.0
+  virtual_path: packages/learning
+  is_virtual: true
+  package_type: apm_package
+  deployed_files:
+  - .agents/skills/assessment-prep
+  - .agents/skills/assessment-prep/SKILL.md
+  - .agents/skills/import-matrix
+  - .agents/skills/import-matrix/SKILL.md
+  - .agents/skills/plan-lab
+  - .agents/skills/plan-lab/SKILL.md
+  - .agents/skills/prereq-check
+  - .agents/skills/prereq-check/SKILL.md
+  - .agents/skills/review-quiz
+  - .agents/skills/review-quiz/SKILL.md
+  - .agents/skills/roadmap-sync
+  - .agents/skills/roadmap-sync/SKILL.md
+  - .agents/skills/session-log
+  - .agents/skills/session-log/SKILL.md
+  - .agents/skills/socratic-tutor
+  - .agents/skills/socratic-tutor/SKILL.md
+  - .claude/agents/socratic-reviewer.md
+  - .claude/skills/assessment-prep
+  - .claude/skills/assessment-prep/SKILL.md
+  - .claude/skills/import-matrix
+  - .claude/skills/import-matrix/SKILL.md
+  - .claude/skills/plan-lab
+  - .claude/skills/plan-lab/SKILL.md
+  - .claude/skills/prereq-check
+  - .claude/skills/prereq-check/SKILL.md
+  - .claude/skills/review-quiz
+  - .claude/skills/review-quiz/SKILL.md
+  - .claude/skills/roadmap-sync
+  - .claude/skills/roadmap-sync/SKILL.md
+  - .claude/skills/session-log
+  - .claude/skills/session-log/SKILL.md
+  - .claude/skills/socratic-tutor
+  - .claude/skills/socratic-tutor/SKILL.md
+  deployed_file_hashes:
+    .agents/skills/assessment-prep/SKILL.md: sha256:be1128d92f93d0b1516b6c69afaa957d4b866e6806f5e4ee2f91c01a48bac7f4
+    .agents/skills/import-matrix/SKILL.md: sha256:9e17f9bf297402cd6cd35bd04e04badb835bb6726f066b69b5de7ef2238ab2cd
+    .agents/skills/plan-lab/SKILL.md: sha256:f22fa7d46768852205f0ea934d6bd2d4b199ac3a8147eb79bf4d05cb8cc762f9
+    .agents/skills/prereq-check/SKILL.md: sha256:97ec9298f3c6da10b61c853b3780a8b286f851a7428e1c8026dc9148d9e702ff
+    .agents/skills/review-quiz/SKILL.md: sha256:b8918ee4cbf9a39074765a9e43deb1b0cc03bf2da4e8830e5ea1d7e71946456d
+    .agents/skills/roadmap-sync/SKILL.md: sha256:7e1a4003cf5b70bcd0b82fd53817d2179dc0665cdf3bf2e88e78a6a8160d1202
+    .agents/skills/session-log/SKILL.md: sha256:6f2ba2d23d9624e54c6fe0875fd244985bceb7acd447e215877f7c2636fa60b7
+    .agents/skills/socratic-tutor/SKILL.md: sha256:5c0c17ffe4a0cbaa8a6c3bc1a2f164b122e5414244a35660202e60129b54ebdb
+    .claude/agents/socratic-reviewer.md: sha256:0bd0e9f89cb8de09ed61797872bdc252e1c995bd70d2470770ecf7562e54e077
+    .claude/skills/assessment-prep/SKILL.md: sha256:be1128d92f93d0b1516b6c69afaa957d4b866e6806f5e4ee2f91c01a48bac7f4
+    .claude/skills/import-matrix/SKILL.md: sha256:9e17f9bf297402cd6cd35bd04e04badb835bb6726f066b69b5de7ef2238ab2cd
+    .claude/skills/plan-lab/SKILL.md: sha256:f22fa7d46768852205f0ea934d6bd2d4b199ac3a8147eb79bf4d05cb8cc762f9
+    .claude/skills/prereq-check/SKILL.md: sha256:97ec9298f3c6da10b61c853b3780a8b286f851a7428e1c8026dc9148d9e702ff
+    .claude/skills/review-quiz/SKILL.md: sha256:b8918ee4cbf9a39074765a9e43deb1b0cc03bf2da4e8830e5ea1d7e71946456d
+    .claude/skills/roadmap-sync/SKILL.md: sha256:7e1a4003cf5b70bcd0b82fd53817d2179dc0665cdf3bf2e88e78a6a8160d1202
+    .claude/skills/session-log/SKILL.md: sha256:6f2ba2d23d9624e54c6fe0875fd244985bceb7acd447e215877f7c2636fa60b7
+    .claude/skills/socratic-tutor/SKILL.md: sha256:5c0c17ffe4a0cbaa8a6c3bc1a2f164b122e5414244a35660202e60129b54ebdb
+  content_hash: sha256:88d80832e3d72de3a2a92afc39f68b14c8ee916a72144cdc86822abc63a20294
+- repo_url: lasterbergamot/ai-common
+  materialization_repo_url: LasterBergamot/ai-common
+  name: workflow
+  host: github.com
+  resolved_commit: 580731e3a89c79dc7069eb8f5871f1ee65a9755c
+  resolved_ref: v0.3.0
+  version: 0.2.0
+  virtual_path: packages/workflow
+  is_virtual: true
+  package_type: apm_package
+  deployed_files:
+  - .agents/skills/create-pr
+  - .agents/skills/create-pr/SKILL.md
+  - .agents/skills/new-issue
+  - .agents/skills/new-issue/SKILL.md
+  - .agents/skills/repo-audit
+  - .agents/skills/repo-audit/SKILL.md
+  - .agents/skills/setup-project
+  - .agents/skills/setup-project/SKILL.md
+  - .agents/skills/triage-dependabot
+  - .agents/skills/triage-dependabot/SKILL.md
+  - .agents/skills/update-documentation
+  - .agents/skills/update-documentation/SKILL.md
+  - .claude/agents/convention-reviewer.md
+  - .claude/skills/create-pr
+  - .claude/skills/create-pr/SKILL.md
+  - .claude/skills/new-issue
+  - .claude/skills/new-issue/SKILL.md
+  - .claude/skills/repo-audit
+  - .claude/skills/repo-audit/SKILL.md
+  - .claude/skills/setup-project
+  - .claude/skills/setup-project/SKILL.md
+  - .claude/skills/triage-dependabot
+  - .claude/skills/triage-dependabot/SKILL.md
+  - .claude/skills/update-documentation
+  - .claude/skills/update-documentation/SKILL.md
+  deployed_file_hashes:
+    .agents/skills/create-pr/SKILL.md: sha256:eeadd3f1210461ffa0e91130f16cb74a95946b8dc039a554cf6a39eaf99c182c
+    .agents/skills/new-issue/SKILL.md: sha256:fee74a8ea2294754297b150c1aeaa84747429bfb5317210827f9313dcfbe0b0d
+    .agents/skills/repo-audit/SKILL.md: sha256:c1636d5ba701b35fdc47764e9d0272fa698908f56fe0811d68b51fc9719b6aaa
+    .agents/skills/setup-project/SKILL.md: sha256:f76b58efd8ea984816b7c773256e8c0b55ecb4b9a9037e606f6c92aef7b9cf57
+    .agents/skills/triage-dependabot/SKILL.md: sha256:2b7128c51ed0d8de9bc49c54d06189042df98cb67ad32adb80577e5be0dc1edb
+    .agents/skills/update-documentation/SKILL.md: sha256:6b77c12a918678dd3eb75f1dd1c48b50036ba457ef5d3231e69bed25efec628f
+    .claude/agents/convention-reviewer.md: sha256:d8e5ebfc2c097c3175c212e48a425b5254d5f71659e3c0072eb7727277462832
+    .claude/skills/create-pr/SKILL.md: sha256:eeadd3f1210461ffa0e91130f16cb74a95946b8dc039a554cf6a39eaf99c182c
+    .claude/skills/new-issue/SKILL.md: sha256:fee74a8ea2294754297b150c1aeaa84747429bfb5317210827f9313dcfbe0b0d
+    .claude/skills/repo-audit/SKILL.md: sha256:c1636d5ba701b35fdc47764e9d0272fa698908f56fe0811d68b51fc9719b6aaa
+    .claude/skills/setup-project/SKILL.md: sha256:f76b58efd8ea984816b7c773256e8c0b55ecb4b9a9037e606f6c92aef7b9cf57
+    .claude/skills/triage-dependabot/SKILL.md: sha256:2b7128c51ed0d8de9bc49c54d06189042df98cb67ad32adb80577e5be0dc1edb
+    .claude/skills/update-documentation/SKILL.md: sha256:6b77c12a918678dd3eb75f1dd1c48b50036ba457ef5d3231e69bed25efec628f
+  content_hash: sha256:2482814b625b431c34db96c7f4b9f7e23af99090d6d8aaeee235b4f2abae0226
+deployments:
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/assessment-prep
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/assessment-prep/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:be1128d92f93d0b1516b6c69afaa957d4b866e6806f5e4ee2f91c01a48bac7f4
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/create-pr
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/create-pr/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:eeadd3f1210461ffa0e91130f16cb74a95946b8dc039a554cf6a39eaf99c182c
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/import-matrix
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/import-matrix/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:9e17f9bf297402cd6cd35bd04e04badb835bb6726f066b69b5de7ef2238ab2cd
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/new-issue
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/new-issue/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:fee74a8ea2294754297b150c1aeaa84747429bfb5317210827f9313dcfbe0b0d
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/plan-lab
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/plan-lab/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:f22fa7d46768852205f0ea934d6bd2d4b199ac3a8147eb79bf4d05cb8cc762f9
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/prereq-check
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/prereq-check/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:97ec9298f3c6da10b61c853b3780a8b286f851a7428e1c8026dc9148d9e702ff
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/repo-audit
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/repo-audit/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:c1636d5ba701b35fdc47764e9d0272fa698908f56fe0811d68b51fc9719b6aaa
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/review-quiz
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/review-quiz/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:b8918ee4cbf9a39074765a9e43deb1b0cc03bf2da4e8830e5ea1d7e71946456d
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/roadmap-sync
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/roadmap-sync/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:7e1a4003cf5b70bcd0b82fd53817d2179dc0665cdf3bf2e88e78a6a8160d1202
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/session-log
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/session-log/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:6f2ba2d23d9624e54c6fe0875fd244985bceb7acd447e215877f7c2636fa60b7
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/setup-project
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/setup-project/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:f76b58efd8ea984816b7c773256e8c0b55ecb4b9a9037e606f6c92aef7b9cf57
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/socratic-tutor
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/socratic-tutor/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:5c0c17ffe4a0cbaa8a6c3bc1a2f164b122e5414244a35660202e60129b54ebdb
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/triage-dependabot
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/triage-dependabot/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:2b7128c51ed0d8de9bc49c54d06189042df98cb67ad32adb80577e5be0dc1edb
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/update-documentation
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: null
+- kind: project-relative
+  target: agent-skills
+  value: .agents/skills/update-documentation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:6b77c12a918678dd3eb75f1dd1c48b50036ba457ef5d3231e69bed25efec628f
+- kind: project-relative
+  target: claude
+  value: .claude/agents/convention-reviewer.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:d8e5ebfc2c097c3175c212e48a425b5254d5f71659e3c0072eb7727277462832
+- kind: project-relative
+  target: claude
+  value: .claude/agents/socratic-reviewer.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:0bd0e9f89cb8de09ed61797872bdc252e1c995bd70d2470770ecf7562e54e077
+- kind: project-relative
+  target: claude
+  value: .claude/skills/assessment-prep
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/assessment-prep/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:be1128d92f93d0b1516b6c69afaa957d4b866e6806f5e4ee2f91c01a48bac7f4
+- kind: project-relative
+  target: claude
+  value: .claude/skills/create-pr
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/create-pr/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:eeadd3f1210461ffa0e91130f16cb74a95946b8dc039a554cf6a39eaf99c182c
+- kind: project-relative
+  target: claude
+  value: .claude/skills/import-matrix
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/import-matrix/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:9e17f9bf297402cd6cd35bd04e04badb835bb6726f066b69b5de7ef2238ab2cd
+- kind: project-relative
+  target: claude
+  value: .claude/skills/new-issue
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/new-issue/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:fee74a8ea2294754297b150c1aeaa84747429bfb5317210827f9313dcfbe0b0d
+- kind: project-relative
+  target: claude
+  value: .claude/skills/plan-lab
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/plan-lab/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:f22fa7d46768852205f0ea934d6bd2d4b199ac3a8147eb79bf4d05cb8cc762f9
+- kind: project-relative
+  target: claude
+  value: .claude/skills/prereq-check
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/prereq-check/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:97ec9298f3c6da10b61c853b3780a8b286f851a7428e1c8026dc9148d9e702ff
+- kind: project-relative
+  target: claude
+  value: .claude/skills/repo-audit
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/repo-audit/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:c1636d5ba701b35fdc47764e9d0272fa698908f56fe0811d68b51fc9719b6aaa
+- kind: project-relative
+  target: claude
+  value: .claude/skills/review-quiz
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/review-quiz/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:b8918ee4cbf9a39074765a9e43deb1b0cc03bf2da4e8830e5ea1d7e71946456d
+- kind: project-relative
+  target: claude
+  value: .claude/skills/roadmap-sync
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/roadmap-sync/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:7e1a4003cf5b70bcd0b82fd53817d2179dc0665cdf3bf2e88e78a6a8160d1202
+- kind: project-relative
+  target: claude
+  value: .claude/skills/session-log
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/session-log/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:6f2ba2d23d9624e54c6fe0875fd244985bceb7acd447e215877f7c2636fa60b7
+- kind: project-relative
+  target: claude
+  value: .claude/skills/setup-project
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/setup-project/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:f76b58efd8ea984816b7c773256e8c0b55ecb4b9a9037e606f6c92aef7b9cf57
+- kind: project-relative
+  target: claude
+  value: .claude/skills/socratic-tutor
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/socratic-tutor/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/learning
+  active_owner: lasterbergamot/ai-common/packages/learning
+  content_hash: sha256:5c0c17ffe4a0cbaa8a6c3bc1a2f164b122e5414244a35660202e60129b54ebdb
+- kind: project-relative
+  target: claude
+  value: .claude/skills/triage-dependabot
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/triage-dependabot/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:2b7128c51ed0d8de9bc49c54d06189042df98cb67ad32adb80577e5be0dc1edb
+- kind: project-relative
+  target: claude
+  value: .claude/skills/update-documentation
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/update-documentation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - lasterbergamot/ai-common/packages/workflow
+  active_owner: lasterbergamot/ai-common/packages/workflow
+  content_hash: sha256:6b77c12a918678dd3eb75f1dd1c48b50036ba457ef5d3231e69bed25efec628f
