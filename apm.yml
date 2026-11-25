@@ -1,0 +1,18 @@
+name: learning-lab
+# Not a published package: this manifest only pins learning-lab's AI tooling (skills and agents
+# from ai-common). Change a skill in ai-common, bump the tag here, run `apm install`.
+version: 0.0.0
+description: AI tooling for learning-lab (skills and agents from ai-common)
+author: Your Name  # replace with your name
+# Which agent platforms to deploy to.
+# Resolution order: --target flag > this field > auto-detect from filesystem.
+# Accepted values: agent-skills, antigravity, claude, codex, copilot, cursor, gemini, grok-bot, grok-build, hermes, kiro, opencode, vscode, windsurf
+targets:
+  - claude
+dependencies:
+  apm:
+    - LasterBergamot/ai-common/packages/workflow#v0.2.0
+    - LasterBergamot/ai-common/packages/learning#v0.2.0
+  mcp: []
+includes: auto
+scripts: {}

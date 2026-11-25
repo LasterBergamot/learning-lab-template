@@ -1,0 +1,31 @@
+name: Assessment prep
+description: Prepare for one level of a skill matrix (assessments/<subject>/).
+title: "Assessment: <subject> – <level>"
+labels: ["type:assessment"]
+body:
+  - type: input
+    id: subject
+    attributes:
+      label: Subject folder
+      placeholder: assessments/prompt-engineering
+    validations:
+      required: true
+  - type: input
+    id: level
+    attributes:
+      label: Target level
+      description: As named in the matrix. Levels are cumulative.
+      placeholder: Intermediate
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Evaluation date (if known)
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance
+      value: |
+        - [ ] Every competency of the target level (and below) is `ready` in readiness.md
+        - [ ] One mock evaluation passed (assessments/<subject>/mock/)

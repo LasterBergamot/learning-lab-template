@@ -1,0 +1,5 @@
+# The template this repo was created from: the first line that isn't a comment.
+# scripts/template-sync.sh reads it. Keep this file when you create your repo.
+# Optional: a "baseline: <commit>" line names the template commit this repo started from, for a
+# repo whose first commit doesn't match a template commit (see docs/Template.md).
+https://github.com/LasterBergamot/learning-lab-template.git

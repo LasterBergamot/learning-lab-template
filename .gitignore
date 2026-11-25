@@ -1,0 +1,79 @@
+# --- APM (ai-common skills) --------------------------------------------------------------
+# The deployed .claude/skills/ and .claude/agents/ are committed; the package cache is not.
+apm_modules/
+.apm-local/
+
+# --- Secrets and environment ---------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.secret
+secrets/
+.claude/settings.local.json
+
+# --- Keys and certificates made in labs -----------------------------------------------------
+# TLS, PKI, SSH and cloud labs generate private keys. They must never be committed, even
+# throwaway ones: a public repo is scanned for keys within minutes. Public certificates (*.crt)
+# are not ignored on purpose; add them only when a lab needs them committed.
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.truststore
+*.csr
+*.srl
+id_rsa*
+id_ed25519*
+*.ppk
+kubeconfig
+*.kubeconfig
+
+# --- Infrastructure state ------------------------------------------------------------------
+# Terraform/OpenTofu and Pulumi state can contain secrets and real resource ids.
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl.bak
+crash.log
+*.tfplan
+.pulumi/
+Pulumi.*.yaml.bak
+.vagrant/
+.localstack/
+volume/
+
+# --- Build output and caches ---------------------------------------------------------------
+target/
+build/
+out/
+dist/
+bin/
+obj/
+.gradle/
+node_modules/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.log
+
+# --- OS and editors ------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.iml
+.vscode/
+!.vscode/extensions.json
+*.swp
+*~
