@@ -1,3 +1,3 @@
-# The template this repo was created from. scripts/template-sync.sh and the Template sync
-# workflow read the first line that isn't a comment. Keep it when you create your repo.
+# The template this repo was created from. scripts/template-sync.sh reads the first line that
+# isn't a comment. Keep it when you create your repo.
 https://github.com/LasterBergamot/learning-lab-template.git

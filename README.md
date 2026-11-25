@@ -9,8 +9,8 @@ for one level.
 
 > **Template:** made from
 > [learning-lab-template](https://github.com/LasterBergamot/learning-lab-template)
-> (`.github/template-source`). To start your own, click **Use this template** there. A
-> workflow opens a PR when the template changes. Merge it with a merge commit.
+> (`.github/template-source`). To start your own, click **Use this template** there. To get
+> template changes, run `scripts/template-sync.sh` and merge with a merge commit.
 > Details: [Template](docs/Template.md).
 
 This README is the router: it says what this is and how it works, what you need installed,
