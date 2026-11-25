@@ -11,7 +11,7 @@ standards (the Compose spec, OCI images) instead of one engine's quirks.
 | Container engine | Docker (`docker compose`) | Podman Desktop, with the `podman` CLI used from **Git Bash** (`podman compose`) |
 | Podman machine (the Linux VM that runs the containers) | n/a | **Hyper-V provider** (`CONTAINERS_MACHINE_PROVIDER=hyperv`, Windows 11 Pro/Enterprise). On Windows Home only WSL2 works; it stays an invisible backend |
 | Shell and tooling | bash, mise, uv | **Git Bash only**, no WSL2 distro. mise and uv run natively |
-| Machine setup (optional) | your dotfiles, e.g. a dev-config `install.sh` | your dotfiles, e.g. a dev-config `install.ps1` (launches Git Bash) |
+| Machine setup (optional) | dev-config `install.sh` | dev-config `install.ps1` (launches Git Bash) |
 | Guard hooks (optional) | ai-common guards | ai-common guards (tested in Git Bash) |
 | Kubernetes | kind | kind with `KIND_EXPERIMENTAL_PROVIDER=podman` |
 | VMs (tier T3) | QEMU/libvirt through nested KVM | Hyper-V VMs, optionally through Vagrant's Hyper-V provider |

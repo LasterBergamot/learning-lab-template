@@ -139,12 +139,9 @@ export KIND_EXPERIMENTAL_PROVIDER=podman
 
 ## 9. Machine setup (optional)
 
-Bring your own dotfiles here. The author uses a private `dev-config` repo; if you have
-something similar, install it now. What it covered, as a checklist: the Claude Code status
-line, `permissions.deny` rules for disk-wiping commands, git aliases.
-
-The author's dev-config installs the Claude Code status line, the `permissions.deny` rules for disk-wiping
-commands, and the git aliases. Clone it next to this repo, then:
+[dev-config](https://github.com/LasterBergamot/dev-config) installs the Claude Code status
+line, the `permissions.deny` rules for disk-wiping commands, and the git aliases. Your own
+dotfiles work just as well. To use dev-config, clone it next to this repo, then:
 
 ```bash
 bash install.sh       # Omarchy
@@ -158,10 +155,6 @@ Pick `claude-statusline`, `claude-settings-statusline`, `claude-settings-deny`, 
 
 ## 10. Guard hooks from ai-common (Claude Code only, optional)
 
-This needs read access to `LasterBergamot/ai-common`, which is private. Without it, skip this
-step: `.claude/settings.json` still asks before state-changing git commands and denies code
-edits under `labs/`.
-
 The guards ask before risky actions: commits, pushes, deletes, secret reads, network uploads,
 writes outside the workspace. They are installed once per machine (user scope):
 
@@ -174,6 +167,9 @@ Use the newest ai-common tag. Fill `local.sh` with this machine's protected fold
 services; ai-common's `docs/USING.md` has the details. Other AI tools have no guard hooks: the
 rules in `AGENTS.md` apply to them.
 
+If you skip this step, `.claude/settings.json` still asks before state-changing git commands
+and denies code edits under `labs/`.
+
 **Expected:** a new Claude Code session lists the active guards at start. Asking it to run
 `git push` makes it ask first, even in auto mode.
 
@@ -181,8 +177,7 @@ rules in `AGENTS.md` apply to them.
 
 Nothing to install: the skills and agents are committed, deployed by APM per tool
 (`.claude/skills/`, `.agents/skills/`). Run `apm install` only after changing the ai-common tag
-in `apm.yml`; that needs read access to `LasterBergamot/ai-common`. Without it, keep the
-committed copies. Every tool reads `AGENTS.md`; `CLAUDE.md` and `GEMINI.md` import it.
+in `apm.yml`. Every tool reads `AGENTS.md`; `CLAUDE.md` and `GEMINI.md` import it.
 
 **Expected:** in Claude Code, `/` lists `socratic-tutor`, `plan-lab`, `prereq-check`,
 `session-log`, `review-quiz`, `assessment-prep`, `import-matrix` and `roadmap-sync`. Asking

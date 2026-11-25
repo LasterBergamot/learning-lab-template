@@ -1,16 +1,25 @@
 name: Template sync
 
-# Keeps a repo made from learning-lab-template in step with it. Every Monday (or on demand) it runs
-# scripts/template-sync.sh on a template-sync branch and opens a PR. Merge that PR with a merge
-# commit, not a squash. On a conflict the run fails: run the script locally and resolve it there.
+# Keeps a repo made from learning-lab-template in step with it: runs scripts/template-sync.sh on a
+# template-sync branch and opens a PR. Merge that PR with a merge commit, not a squash. On a
+# conflict the run fails: run the script locally and resolve it there. Details: docs/Template.md.
 #
-# GITHUB_TOKEN can't push changes to workflow files, and PRs it opens don't trigger CI. For full
-# syncs, add a TEMPLATE_SYNC_TOKEN secret: a fine-grained token for this repo with Contents,
-# Pull requests and Workflows set to read and write. Without it, also enable Settings → Actions →
-# General → "Allow GitHub Actions to create and approve pull requests". See docs/Template.md.
+# When it runs:
+# - template-updated: the template's Template notify workflow sends it after every push to the
+#   template's main branch, to the repos listed there. This is the normal trigger.
+# - schedule: a daily check for repos the template can't notify. It ends without a PR when
+#   nothing changed. Set the repository variable TEMPLATE_SYNC_POLL to false to turn it off.
+# - workflow_dispatch: by hand, from the Actions tab.
+#
+# Token: add a TEMPLATE_SYNC_TOKEN secret, a fine-grained token for this repo with Contents,
+# Pull requests and Workflows set to read and write. GITHUB_TOKEN works without it, but it can't
+# push changes to workflow files, PRs it opens don't start CI, and it needs Settings → Actions →
+# General → "Allow GitHub Actions to create and approve pull requests".
 on:
+  repository_dispatch:
+    types: [template-updated]
   schedule:
-    - cron: '23 6 * * 1'
+    - cron: '23 6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -24,8 +33,10 @@ concurrency:
 jobs:
   sync:
     name: Merge template updates
-    # Not in the template itself: it has nothing to sync from.
-    if: github.repository != 'LasterBergamot/learning-lab-template'
+    # Not in the template itself, and no daily check where polling is turned off.
+    if: >-
+      github.repository != 'LasterBergamot/learning-lab-template' &&
+      (github.event_name != 'schedule' || vars.TEMPLATE_SYNC_POLL != 'false')
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.TEMPLATE_SYNC_TOKEN || github.token }}
@@ -59,5 +70,5 @@ jobs:
           if [ -z "$(gh pr list --head template-sync --state open --json number --jq '.[].number')" ]; then
             gh pr create --head template-sync --base "$BASE" \
               --title 'Sync with the template' \
-              --body 'Changes from the template since the last sync (`scripts/template-sync.sh`). Merge with a **merge commit**, not a squash, so the next sync starts from here.'
+              --body 'Changes from the template since the last sync (scripts/template-sync.sh). Merge with a **merge commit**, not a squash, so the next sync starts from here.'
           fi

@@ -10,7 +10,7 @@ for one level.
 > **Template:** made from
 > [learning-lab-template](https://github.com/LasterBergamot/learning-lab-template)
 > (`.github/template-source`). To start your own, click **Use this template** there. A
-> weekly workflow opens a PR when the template changes. Merge it with a merge commit.
+> workflow opens a PR when the template changes. Merge it with a merge commit.
 > Details: [Template](docs/Template.md).
 
 This README is the router: it says what this is and how it works, what you need installed,
@@ -56,9 +56,9 @@ bash scripts/prereqs.sh --install                # installs what is missing, ask
 - **Omarchy (Linux VM):** bash, Docker, mise, uv; packages from pacman.
 - **Windows 11:** Git Bash only (no WSL2 distro), Podman Desktop with the Hyper-V machine
   provider, mise, uv; packages from winget.
-- Both: git, gh, jq, shellcheck (lints `scripts/*.sh`) and the APM CLI. Optional: your own
-  machine setup (status line, deny rules, git aliases) and guard hooks for your AI tool
-  ([Setup](docs/Setup.md) steps 9 and 10).
+- Both: git, gh, jq, shellcheck (lints `scripts/*.sh`) and the APM CLI. Optional: the machine setup
+  from [dev-config](https://github.com/LasterBergamot/dev-config) (status line, deny rules, git
+  aliases) and ai-common's guard hooks ([Setup](docs/Setup.md) steps 9 and 10).
 
 The full runbook, step by step with the expected result of each step, is [Setup](docs/Setup.md).
 

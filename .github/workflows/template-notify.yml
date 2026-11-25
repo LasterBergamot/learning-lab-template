@@ -1,0 +1,43 @@
+name: Template notify
+
+# Runs in the template only. After every push to main it sends a template-updated event to each repo
+# in the TEMPLATE_SYNC_REPOS repository variable (owner/name, separated by spaces or new lines).
+# Their Template sync workflow then opens a PR. Repos that aren't listed fall back to their daily
+# check.
+#
+# Needs a TEMPLATE_DISPATCH_TOKEN secret: a fine-grained token with Contents set to read and write
+# on every listed repo. GitHub requires that permission to send a repository_dispatch event.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  notify:
+    name: Notify repos made from the template
+    if: github.repository == 'LasterBergamot/learning-lab-template'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.TEMPLATE_DISPATCH_TOKEN }}
+      REPOS: ${{ vars.TEMPLATE_SYNC_REPOS }}
+      SHA: ${{ github.sha }}
+    steps:
+      - name: Send template-updated
+        run: |
+          if [ -z "$GH_TOKEN" ] || [ -z "$REPOS" ]; then
+            echo "::notice::TEMPLATE_DISPATCH_TOKEN or TEMPLATE_SYNC_REPOS is not set; nothing to notify."
+            exit 0
+          fi
+          failed=0
+          for repo in $REPOS; do
+            if gh api "repos/$repo/dispatches" -f event_type=template-updated \
+                 -f "client_payload[sha]=$SHA" --silent; then
+              echo "notified: $repo"
+            else
+              echo "::error::could not notify $repo"
+              failed=1
+            fi
+          done
+          exit "$failed"
