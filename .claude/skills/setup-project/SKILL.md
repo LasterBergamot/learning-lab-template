@@ -8,7 +8,7 @@ effort: high
 Follow the project's setup runbook from the top. It is the single source of truth for setting
 up the repo, shared with people and other AI agents, so do not work from memory.
 
-Find the runbook: the setup row of the router in `AGENTS.md` (or `CLAUDE.md`), otherwise
+Find the runbook: the setup row of the router in `CLAUDE.md` (or `AGENTS.md`), otherwise
 `documentation/Setup.md` or `docs/setup.md`. If there is none, say so and stop: offer to write
 one instead of improvising the steps.
 

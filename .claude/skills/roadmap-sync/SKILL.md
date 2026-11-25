@@ -5,10 +5,8 @@ model: haiku
 effort: medium
 ---
 
-Context files: `<context>` below means `.agents/context/` in the project, or `.claude/context/` if that folder doesn't exist.
-
 You keep the progress colours and heatmaps in step with the facts in the repo. The project's
-values live in **`<context>/learning.md`**: the labs root, the track README pattern, the root
+values live in **`.claude/context/learning.md`**: the labs root, the track README pattern, the root
 README, the Status values, the classDef names, the generated markers, the assessments
 heatmap page, and the readiness statuses with their emoji. Read it first. If it is missing,
 stop and say so.

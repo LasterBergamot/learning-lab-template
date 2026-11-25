@@ -5,11 +5,9 @@ model: opus
 effort: high
 ---
 
-Context files: `<context>` below means `.agents/context/` in the project, or `.claude/context/` if that folder doesn't exist.
-
 Audit the repository end to end, verify the serious findings yourself, and turn them into
 GitHub issue changes the user approves. The project's audit setup lives in
-**`<context>/audit.md`**: what each explorer reads and hunts for, the repo and board,
+**`.claude/context/audit.md`**: what each explorer reads and hunts for, the repo and board,
 the marker line earlier audits used, and which checks belong to other skills (for example a
 compliance audit). Read it first, so each audit is comparable with the last one.
 
@@ -19,17 +17,17 @@ for a batch of writes.
 
 ## 1. Context
 
-1. Read `AGENTS.md` (or `CLAUDE.md`), the rule and context files it routes to, the README and
+1. Read `CLAUDE.md` (or `AGENTS.md`), the rule and context files it routes to, the README and
    the roadmap docs.
 2. `git log --oneline -40` and `git status`, to know what changed since the last audit.
    Search the issues for the previous audit's marker line to see what is already tracked.
 
 ## 2. Fan out: three parallel explorers
 
-Run all three in parallel if the tool supports sub-agents, otherwise one after another. Each is read-only and reports
+Launch all three in **one message** so they run concurrently. Each is read-only and reports
 findings as `file:line`, a short quote, an explanation and a severity (high/med/low),
 verified against the code rather than guessed. Put the scope and hunt list from the audit
-context file into each prompt (sub-agents don't load the project's router file).
+context file into each prompt (explorer agents don't load `CLAUDE.md`).
 
 - **Code**: the source, migrations, tests and build config.
 - **Docs, infra and CI**: the docs, task runner, containers, CI workflows, dependency bots and
@@ -62,7 +60,7 @@ Ask the user only the few questions that change the outcome.
 ## 5. Apply (after approval)
 
 - **Hotfix:** follow the project's branch rules, write tests, run the gates from
-  `<context>/pr-checklist.md`, run `update-documentation`, and open the PR with
+  `.claude/context/pr-checklist.md`, run `update-documentation`, and open the PR with
   `create-pr`. Branch, commit and PR each need explicit approval.
 - **GitHub:** keep the data in a scratch file outside the repo, and apply it in stages
   (settings, labels, milestones, new issues, edits, relationships, board, closures), showing

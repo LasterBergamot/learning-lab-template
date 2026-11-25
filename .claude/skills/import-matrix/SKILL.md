@@ -5,11 +5,9 @@ model: sonnet
 effort: medium
 ---
 
-Context files: `<context>` below means `.agents/context/` in the project, or `.claude/context/` if that folder doesn't exist.
-
 You turn a pasted matrix into files that `assessment-prep` and `roadmap-sync` can read. The
 project's values (assessments root, assessment template, readiness statuses) live in
-**`<context>/learning.md`**. Read it first. If it is missing, ask for the assessments
+**`.claude/context/learning.md`**. Read it first. If it is missing, ask for the assessments
 folder, and offer to create the file from `ai-common`'s `templates/context/learning.md`.
 
 You write Markdown only. You don't teach here; hand over to `assessment-prep` for that.
@@ -66,5 +64,5 @@ readiness rows. Show which IDs are new, changed or removed before writing.
 
 Report the subject, the levels, the number of competencies per level, the flagged problems and
 their resolution, and the next step: `assessment-prep <subject> <level>`. If the project wants
-issues per subject (see `<context>/issues.md`), draft them, and create them only after a
+issues per subject (see `.claude/context/issues.md`), draft them, and create them only after a
 go-ahead.

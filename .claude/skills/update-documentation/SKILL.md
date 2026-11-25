@@ -1,13 +1,11 @@
 ---
 name: update-documentation
-description: Update the project's docs (README, the wiki or docs folder, AGENTS.md/CLAUDE.md and their rule/context files, docstrings and any other doc file) that are out of sync with the current state of the project. Use after making a change that affects architecture, API surface, data model, dev workflow, or planned work — or whenever asked to sync/update docs or the wiki content.
+description: Update the project's docs (README, the wiki or docs folder, CLAUDE.md and its rule/context files, docstrings and any other doc file) that are out of sync with the current state of the project. Use after making a change that affects architecture, API surface, data model, dev workflow, or planned work — or whenever asked to sync/update docs or the wiki content.
 model: sonnet
 ---
 
-Context files: `<context>` below means `.agents/context/` in the project, or `.claude/context/` if that folder doesn't exist.
-
 Keep every doc in the repo honest, not just one folder. The project's doc map lives in
-**`<context>/docs.md`**: which files exist, what each one covers, how they are
+**`.claude/context/docs.md`**: which files exist, what each one covers, how they are
 published (for example a wiki mirror), and the project-specific steps (generated blocks,
 page maps, docstring rules). Read it first; this skill holds the procedure.
 
@@ -26,11 +24,11 @@ architecture and codebase, not just record what changed. Explain the "why", not 
    A new page goes into the index (and the page map, if the project publishes one).
 5. **Don't edit published copies directly** (for example a GitHub wiki that CI overwrites).
 6. **README:** API behavior, prerequisites, tasks, project structure and examples must match.
-7. **Assistant context:** `AGENTS.md` (or `CLAUDE.md`) and the rule and context files it
+7. **Assistant context:** `CLAUDE.md` (or `AGENTS.md`) and the rule and context files it
    routes to. Keep the router short; the detail lives in the rule files.
 8. **Other docs the change touches** (env examples, runbooks, setup guides).
 9. **The newcomer guide and the references page**, if the project has them and the change
    affects tooling, architecture or dependencies.
 10. **Project-specific steps** from the doc map (generated blocks, docstring rules, page maps).
 11. **If nothing needs documenting, say so explicitly**, in the form the project's PR rules
-    ask for (see `<context>/pr-checklist.md`).
+    ask for (see `.claude/context/pr-checklist.md`).

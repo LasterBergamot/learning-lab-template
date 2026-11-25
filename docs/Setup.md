@@ -38,7 +38,7 @@ Your own repo, created from the template (see the README's "Using this template"
 git clone git@github.com:<owner>/<repo>.git && cd <repo>
 ```
 
-**Expected:** the clone succeeds and `ls` shows `README.md`, `AGENTS.md`, `labs/` and `scripts/`.
+**Expected:** the clone succeeds and `ls` shows `README.md`, `CLAUDE.md`, `labs/` and `scripts/`.
 Line endings are LF on both platforms (`.gitattributes`); don't change `core.autocrlf` for
 this repo.
 
@@ -164,8 +164,7 @@ cp ~/.claude/hooks/guards/scripts/local.sh.example ~/.claude/hooks/local.sh
 ```
 
 Use the newest ai-common tag. Fill `local.sh` with this machine's protected folders and
-services; ai-common's `docs/USING.md` has the details. Other AI tools have no guard hooks: the
-rules in `AGENTS.md` apply to them.
+services; ai-common's `docs/USING.md` has the details.
 
 If you skip this step, `.claude/settings.json` still asks before state-changing git commands
 and denies code edits under `labs/`.
@@ -175,9 +174,9 @@ and denies code edits under `labs/`.
 
 ## 11. The AI tooling in this repo
 
-Nothing to install: the skills and agents are committed, deployed by APM per tool
-(`.claude/skills/`, `.agents/skills/`). Run `apm install` only after changing the ai-common tag
-in `apm.yml`. Every tool reads `AGENTS.md`; `CLAUDE.md` and `GEMINI.md` import it.
+Nothing to install: the skills and agents are committed, deployed by APM to `.claude/skills/`
+and `.claude/agents/`. Run `apm install` only after changing the ai-common tag in `apm.yml`.
+Claude Code reads `CLAUDE.md`.
 
 **Expected:** in Claude Code, `/` lists `socratic-tutor`, `plan-lab`, `prereq-check`,
 `session-log`, `review-quiz`, `assessment-prep`, `import-matrix` and `roadmap-sync`. Asking

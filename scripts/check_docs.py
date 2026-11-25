@@ -11,7 +11,7 @@ Runs the same on Omarchy (Linux) and Windows 11 (Git Bash), locally and in CI
   `**Status:** todo|learning|building|done` line;
 - every track README (`labs/<track>/README.md`) is linked from the root `README.md`.
 
-Folders deployed by APM (`.claude/skills`, `.claude/agents`, `.agents/skills`) and
+Folders deployed by APM (`.claude/skills`, `.claude/agents`) and
 `apm_modules/` are not checked: they are generated, and fixed upstream in ai-common.
 
     python3 scripts/check_docs.py          # from the repo root; exit 1 on any problem
@@ -33,7 +33,6 @@ SKIP_DIRS = {
     "node_modules",
     ".claude/skills",
     ".claude/agents",
-    ".agents/skills",
 }
 STATUS = re.compile(r"^\*\*Status:\*\*\s*(todo|learning|building|done)\b", re.MULTILINE)
 STATUS_ANY = re.compile(r"^\*\*Status:\*\*", re.MULTILINE)

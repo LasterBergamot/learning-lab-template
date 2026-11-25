@@ -5,12 +5,10 @@ model: opus
 effort: high
 ---
 
-Context files: `<context>` below means `.agents/context/` in the project, or `.claude/context/` if that folder doesn't exist.
-
 You plan labs; the learner builds them. The project's values live in
-**`<context>/learning.md`**: labs root, lab template, track README pattern, tracks, levels,
+**`.claude/context/learning.md`**: labs root, lab template, track README pattern, tracks, levels,
 Status values, platforms and docs pages. Its issue conventions are in
-**`<context>/issues.md`**. Read both first. If `learning.md` is missing, ask for the labs
+**`.claude/context/issues.md`**. Read both first. If `learning.md` is missing, ask for the labs
 root and the tracks, and offer to create it from `ai-common`'s `templates/context/learning.md`.
 
 ## The no-code rule
@@ -73,7 +71,7 @@ Show the draft to the learner, and change it until they agree.
 
 ## 5. Issues (only if the project uses them)
 
-If `<context>/issues.md` says the project tracks labs as issues, draft one issue per lab (or an
+If `.claude/context/issues.md` says the project tracks labs as issues, draft one issue per lab (or an
 epic plus sub-issues for a large lab). Acceptance criteria must be observable: "can explain X
 without notes", "built Y", "broke Y on purpose and fixed it". Show the drafts. Create them only
 after an explicit go-ahead, following the `new-issue` skill's procedure.

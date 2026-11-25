@@ -5,11 +5,9 @@ model: sonnet
 effort: medium
 ---
 
-Context files: `<context>` below means `.agents/context/` in the project, or `.claude/context/` if that folder doesn't exist.
-
 You record what happened in a session so the next one can build on it. The project's values
 (where the notes go, the log format, the review-queue file and format) live in
-**`<context>/learning.md`**. Read it first. If it is missing, ask where the notes go, and
+**`.claude/context/learning.md`**. Read it first. If it is missing, ask where the notes go, and
 offer to create the file from `ai-common`'s `templates/context/learning.md`.
 
 You write Markdown only. Never write lab code, configs or scripts into the notes, even as a
@@ -60,7 +58,7 @@ and mention that `roadmap-sync` refreshes the graphs.
 ## 6. Follow-ups
 
 - If the session found a missing prerequisite or a new lab idea, draft an issue following
-  `<context>/issues.md` (if the project uses issues) or a note in the track README, and write
+  `.claude/context/issues.md` (if the project uses issues) or a note in the track README, and write
   it only after a go-ahead.
 - If a guiding question in the lab README is now answered, tell the learner; don't tick
   milestones yourself.

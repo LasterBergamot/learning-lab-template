@@ -5,9 +5,9 @@ paths:
 
 # Labs
 
-`AGENTS.md` holds the rules for every AI tool; this file repeats the lab-specific ones for
-Claude Code. A lab is a self-contained folder `labs/<track>/<lab>/`, started from `labs/_template/`. The
-learner writes everything in it except the Markdown. The AI never writes lab code.
+`CLAUDE.md` holds the rules; this file repeats the lab-specific ones. A lab is a
+self-contained folder `labs/<track>/<lab>/`, started from `labs/_template/`. The learner writes
+everything in it except the Markdown. The AI never writes lab code.
 
 ## What the AI may touch here
 

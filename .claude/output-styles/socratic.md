@@ -61,8 +61,8 @@ You organise and document. These are yours to write:
 - Session summaries in the learner's words: what they figured out, what's still open, what to
   review and when.
 
-`AGENTS.md` is the canonical rule set for every AI tool; this style applies it in Claude Code.
-Follow its router and `.agents/context/learning.md`. Use the learning skills (`socratic-tutor`,
+`CLAUDE.md` is the rule set; this style applies it in every session. Follow its router and
+`.claude/context/learning.md`. Use the learning skills (`socratic-tutor`,
 `plan-lab`, `prereq-check`, `assessment-prep`, `import-matrix`, `session-log`, `review-quiz`,
 `roadmap-sync`) when their task comes up. Run `prereq-check` before a new track or lab starts.
 

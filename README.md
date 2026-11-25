@@ -25,10 +25,9 @@ where you stand (the progress graph), and links to every track and page.
   at a time, plans labs, checks prerequisites and keeps the docs current. **It never writes lab
   code.** Every line of code, config and infrastructure in `labs/` is yours
   ([How I Learn](docs/How-I-Learn.md)).
-- **Any AI tool.** The rules live in [`AGENTS.md`](AGENTS.md), which Claude Code, Gemini CLI,
-  Codex, Copilot and Cursor all read. The skills come from ai-common through
-  [APM](https://github.com/microsoft/apm), deployed for each tool in use. Claude Code adds a
-  tutor output style and deny rules on top.
+- **Claude Code.** The rules live in [`CLAUDE.md`](CLAUDE.md), with a tutor output style and
+  deny rules in `.claude/`. The skills come from ai-common through
+  [APM](https://github.com/microsoft/apm).
 - **Progress lives in the repo.** Each lab README has a `**Status:**` line; the graphs below and
   in each track README follow it ([Progress](#progress)).
 - **Two platforms, always in sync.** Everything works on Omarchy (Linux, Docker) and on
@@ -39,7 +38,7 @@ where you stand (the progress graph), and links to every track and page.
 | AI writes | Only you write |
 |---|---|
 | Markdown: lab briefs, notes, docs, glossary, Mermaid graphs, session logs | Application code in any language |
-| Skills, agents, `AGENTS.md`, the Claude output style (these are prompts) | Dockerfiles/Containerfiles, compose files, Kubernetes manifests, Terraform/Pulumi, Ansible |
+| Skills, agents, `CLAUDE.md`, the output style (these are prompts) | Dockerfiles/Containerfiles, compose files, Kubernetes manifests, Terraform/Pulumi, Ansible |
 | Repo tooling: `scripts/`, CI, `.gitignore`, issue forms, `apm.yml` | Scripts, configs, keys and certificates inside labs |
 | GitHub issues and the board (optional, drafts you approve) | Anything under `labs/` that is not Markdown |
 
@@ -242,11 +241,11 @@ folder looks: [labs/README.md](labs/README.md).
 - [Glossary](docs/Glossary.md): the terms these pages use
 - [Review Queue](docs/Review-Queue.md): spaced-repetition questions
 - [Assessments](docs/Assessments.md) and [assessments/README.md](assessments/README.md): skill-evaluation prep and the readiness heatmap
-- [AGENTS.md](AGENTS.md): the rules every AI tool follows here
+- [CLAUDE.md](CLAUDE.md): the rules Claude Code follows here
 
 ## Starting something
 
-- **A lab:** ask your AI tool for `plan-lab <track>/<lab>`. It runs `prereq-check`, then writes
+- **A lab:** ask Claude Code for `plan-lab <track>/<lab>`. It runs `prereq-check`, then writes
   `labs/<track>/<lab>/README.md` from the template, links the prerequisites, records its
   sources and adds the lab to its track graph. Then run `socratic-tutor` and build it yourself.
 - **An assessment prep:** run `import-matrix <subject>` and paste the matrix, then
@@ -282,12 +281,11 @@ the other.
 ```
 learning-lab/
 ├── README.md              this router
-├── AGENTS.md              the AI rules for every tool; CLAUDE.md and GEMINI.md import it
+├── CLAUDE.md              the AI rules and router for Claude Code
 ├── apm.yml, apm.lock.yaml AI skills and agents pinned from ai-common
 ├── scripts/               prereqs.sh (both platforms), docs checks, template-sync.sh
 ├── .github/               CI on Linux and Windows, issue forms
-├── .agents/               tool-neutral context files; deployed skills for the agent-skills target
-├── .claude/               Claude Code extras: settings, output style, path rules, deployed skills
+├── .claude/               context files, settings, output style, path rules, deployed skills
 ├── docs/                  cross-cutting pages: setup, platforms, isolation, method, tools
 ├── labs/<track>/          one README per track, one folder per lab (from labs/_template/)
 └── assessments/<subject>/ skill-assessment prep (from assessments/_template/)

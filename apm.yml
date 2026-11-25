@@ -9,11 +9,10 @@ author: Your Name  # replace with your name
 # Accepted values: agent-skills, antigravity, claude, codex, copilot, cursor, gemini, grok-bot, grok-build, hermes, kiro, opencode, vscode, windsurf
 targets:
   - claude
-  - agent-skills
 dependencies:
   apm:
-    - LasterBergamot/ai-common/packages/workflow#v0.3.0
-    - LasterBergamot/ai-common/packages/learning#v0.3.0
+    - LasterBergamot/ai-common/packages/workflow#v0.2.0
+    - LasterBergamot/ai-common/packages/learning#v0.2.0
   mcp: []
 includes: auto
 scripts: {}

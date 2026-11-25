@@ -11,9 +11,9 @@ this file says which docs this repo has and the steps specific to it.
 - `README.md` (root) is the router for people: what this is, how it works, prerequisites
   (`scripts/prereqs.sh`), the track-level progress graph (Progress section), a link to every track README, and
   working across machines. Keep it accurate when any of those change.
-- `AGENTS.md` is the router for every AI tool (under 100 lines). `CLAUDE.md` imports it and adds
-  the Claude-only extras; `GEMINI.md` imports it. Context files: `.agents/context/`. Claude-only:
-  `.claude/rules/`, `.claude/output-styles/socratic.md`, `.claude/settings.json`.
+- `CLAUDE.md` is the router for Claude Code (under 100 lines). Context files:
+  `.claude/context/`. Also: `.claude/rules/`, `.claude/output-styles/socratic.md`,
+  `.claude/settings.json`.
 - `labs/<track>/README.md` (track pages) and `labs/<track>/<lab>/README.md` (lab briefs), each
   with a References section. `assessments/**`.
 
@@ -22,7 +22,7 @@ this file says which docs this repo has and the steps specific to it.
 | File | Covers |
 |------|--------|
 | `README.md` | Router: what, how, prerequisites, progress overview graph, track links, machines |
-| `AGENTS.md` | AI rules and router for any tool |
+| `CLAUDE.md` | AI rules and router for Claude Code |
 | `docs/Setup.md` | Machine setup runbook for Omarchy (Linux/Docker) and Windows 11 (Git Bash/Podman), built on `scripts/prereqs.sh`. The `setup-project` skill follows it |
 | `docs/Template.md` | The template this repo comes from (`.github/template-source`), creating a repo from it, and the sync |
 | `docs/Platforms.md` | The two-platform matrix and the portability rules |
@@ -42,7 +42,7 @@ this file says which docs this repo has and the steps specific to it.
 - After a lab or assessment status changes, run `roadmap-sync`. It owns the blocks between
   `<!-- roadmap-sync:start -->` and `<!-- roadmap-sync:end -->`; never edit them by hand.
 - A new track: a `labs/<id>/README.md`, a node and a link in the root `README.md`, a row in
-  `.agents/context/learning.md` (Tracks) and a `track:<id>` label.
+  `.claude/context/learning.md` (Tracks) and a `track:<id>` label.
 - Online sources go into the References section of the relevant README (see `learning.md`).
 - A new tool comparison goes in `docs/Tool-Landscape.md`, not in a lab brief.
 - Instructions for one platform only are a doc bug: cover Omarchy and Windows 11 Git Bash together.

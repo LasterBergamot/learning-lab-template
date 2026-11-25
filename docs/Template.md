@@ -3,7 +3,7 @@
 Every learning-lab repo is created from
 [learning-lab-template](https://github.com/LasterBergamot/learning-lab-template), and
 `.github/template-source` records which template it came from. The template holds the
-framework: `AGENTS.md`, `docs/`, `scripts/`, `.agents/`, `.claude/`, `.github/`, and the
+framework: `CLAUDE.md`, `docs/`, `scripts/`, `.claude/`, `.github/`, and the
 `_template` folders and track READMEs. Your repo holds your progress: labs, notes, Status
 lines, the review queue and assessments.
 
@@ -17,7 +17,7 @@ lines, the review queue and assessments.
 
    `--private` works too. You get one fresh commit with none of the template's history.
 2. Keep `.github/template-source` as it is. It is how the sync finds the template.
-3. Replace the placeholders: `grep -rn '<owner>/<repo>' .agents docs` finds them. Set `author`
+3. Replace the placeholders: `grep -rn '<owner>/<repo>' .claude/context docs` finds them. Set `author`
    in `apm.yml`, and add your name to `LICENSE` for your own content.
 4. Follow [Setup](Setup.md). Steps 9 and 10 (dev-config and ai-common's guard
    hooks) are optional.

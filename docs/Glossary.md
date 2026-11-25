@@ -23,9 +23,8 @@ Short definitions of the terms these pages use. Add a term when a page first use
 | **Competency matrix** | A table of skills by level (Novice, Intermediate, Advanced) used for skill evaluations ([Assessments](Assessments.md)) |
 | **Readiness** | Per competency: not started, learning, can explain, ready |
 | **APM** | Agent Package Manager: installs the AI skills and agents from ai-common into this repo |
-| **Skill (AI)** | A packaged instruction set for an AI tool (Claude Code, Gemini CLI, Codex, …), such as `socratic-tutor`; not to be confused with your own skills in [Assessments](Assessments.md) |
+| **Skill (AI)** | A packaged instruction set for Claude Code, such as `socratic-tutor`; not to be confused with your own skills in [Assessments](Assessments.md) |
 | **Output style** | A Claude Code setting that changes how every session behaves; here it puts every session in tutor mode |
-| **AGENTS.md** | The tool-neutral instructions file every AI tool here reads; `CLAUDE.md` and `GEMINI.md` import it |
 | **Status line** | The `**Status:**` line under a lab README's title (`todo`, `learning`, `building`, `done`); the graphs follow it |
 | **JWT** | JSON Web Token: a compact, signed (and optionally encrypted) set of claims, `header.payload.signature` |
 | **JWS / JWE** | JSON Web Signature (signed, readable) and JSON Web Encryption (encrypted) — the two forms a JWT can take |

@@ -1,12 +1,10 @@
 ---
 name: triage-dependabot
-description: Check open Dependabot security alerts and version-update PRs, classify each PR as blocking or non-blocking per the project's `<context>/pr-checklist.md`, and (after the user confirms) rebase/merge the safe ones and bring the current branch up to date. Use before opening any PR (create-pr runs it), or when asked about dependency updates, Dependabot, or security alerts.
+description: Check open Dependabot security alerts and version-update PRs, classify each PR as blocking or non-blocking per the project's `.claude/context/pr-checklist.md`, and (after the user confirms) rebase/merge the safe ones and bring the current branch up to date. Use before opening any PR (create-pr runs it), or when asked about dependency updates, Dependabot, or security alerts.
 model: sonnet
 ---
 
-Context files: `<context>` below means `.agents/context/` in the project, or `.claude/context/` if that folder doesn't exist.
-
-This puts the Dependabot rule of **`<context>/pr-checklist.md`** into practice. Read
+This puts the Dependabot rule of **`.claude/context/pr-checklist.md`** into practice. Read
 that file first: it names the repo (`$REPO`), the base branch, the core dependencies, the
 required checks, the lock-file and re-test commands, and any known recurring cases. If the
 file and this skill disagree, the file wins.

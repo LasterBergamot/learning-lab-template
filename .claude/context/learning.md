@@ -2,8 +2,7 @@
 
 Read by the learning skills (`socratic-tutor`, `plan-lab`, `prereq-check`, `assessment-prep`,
 `import-matrix`, `session-log`, `review-quiz`, `roadmap-sync`) and the `socratic-reviewer` agent
-from `ai-common`, whatever AI tool runs them. The skills hold the procedure; this file holds
-this repo's values.
+from `ai-common`. The skills hold the procedure; this file holds this repo's values.
 
 ## Paths
 
@@ -32,8 +31,8 @@ this repo's values.
   and reading the learner's own code to ask about it.
 - **Style:** one question at a time; ask for a prediction before a run; end a topic with
   "explain it back"; be explicit about vendor differences and send the learner to vendor docs.
-- `AGENTS.md` holds the same rules for every AI tool. In Claude Code, the output style
-  `.claude/output-styles/socratic.md` also sets them for every session.
+- `CLAUDE.md` holds the same rules, and the output style `.claude/output-styles/socratic.md`
+  sets them for every session.
 
 ## Sources
 
@@ -76,7 +75,7 @@ this repo's values.
 | `classics` | Classics | `labs/classics/README.md` |
 
 A new track gets a folder `labs/<id>/` with a `README.md`, a row here, a node in the root
-`README.md` graph and a `track:<id>` label (`.agents/context/issues.md`).
+`README.md` graph and a `track:<id>` label (`.claude/context/issues.md`).
 
 ## Levels
 

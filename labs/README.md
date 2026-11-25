@@ -21,7 +21,7 @@ labs/
 
 ## Starting a lab
 
-Ask the AI tool for `plan-lab <track>/<lab>`. It runs `prereq-check` first, then copies
+Ask Claude Code for `plan-lab <track>/<lab>`. It runs `prereq-check` first, then copies
 [`_template/`](_template/README.md), writes the brief, links the prerequisites, adds the
 sources it used to References, and fills in the lab's row in the track README. Or copy the
 template by hand.

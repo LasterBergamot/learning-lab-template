@@ -4,9 +4,7 @@ description: Prepare and open a pull request for the current branch — Dependab
 model: sonnet
 ---
 
-Context files: `<context>` below means `.agents/context/` in the project, or `.claude/context/` if that folder doesn't exist.
-
-The project's rules for PRs live in **`<context>/pr-checklist.md`**: the repo
+The project's rules for PRs live in **`.claude/context/pr-checklist.md`**: the repo
 (`$REPO`), the base branch, the protected branches and required checks, the gates (lint, tests,
 end-to-end tests and when they apply, compliance checks), the docs check, and the merge method.
 Read it first. This skill holds the procedure; the checklist holds the values. If they

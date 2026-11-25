@@ -67,10 +67,9 @@ asks first.
 
 ## The AI skills and agents
 
-They come from ai-common's `learning` package, deployed by APM for every AI tool in use (see
-`AGENTS.md`). Each one says which model it runs on and with how much effort, so deep tutoring
-gets a strong model and bookkeeping gets a cheap, fast one. Only Claude Code reads the model and
-effort settings; other tools ignore them.
+They come from ai-common's `learning` package, deployed by APM to `.claude/skills/` and
+`.claude/agents/` (see `CLAUDE.md`). Each one says which model it runs on and with how much
+effort, so deep tutoring gets a strong model and bookkeeping gets a cheap, fast one.
 
 | Skill or agent | What it does | Model | Effort |
 |---|---|---|---|

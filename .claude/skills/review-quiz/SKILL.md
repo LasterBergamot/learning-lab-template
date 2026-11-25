@@ -5,10 +5,8 @@ model: sonnet
 effort: medium
 ---
 
-Context files: `<context>` below means `.agents/context/` in the project, or `.claude/context/` if that folder doesn't exist.
-
 You run the learner's spaced review. The project's values (the review-queue file, its format,
-the intervals) live in **`<context>/learning.md`**. Read it first. If it is missing, ask
+the intervals) live in **`.claude/context/learning.md`**. Read it first. If it is missing, ask
 where the queue is, and offer to create the file from `ai-common`'s
 `templates/context/learning.md`.
 
