@@ -1,7 +1,7 @@
 # Learning setup
 
-Read by the learning skills (`socratic-tutor`, `plan-lab`, `prereq-check`, `assessment-prep`,
-`import-matrix`, `session-log`, `review-quiz`, `roadmap-sync`) and the `socratic-reviewer` agent
+Read by the learning skills (`learn`, `socratic-tutor`, `plan-lab`, `prereq-check`,
+`assessment-prep`, `import-matrix`, `session-log`, `review-quiz`, `roadmap-sync`) and the `socratic-reviewer` agent
 from `ai-common`. The skills hold the procedure; this file holds this repo's values.
 
 ## Paths
@@ -20,6 +20,9 @@ from `ai-common`. The skills hold the procedure; this file holds this repo's val
 - **Assessment heatmap:** `docs/Assessments.md`
 - **Glossary:** `docs/Glossary.md`
 - **Tool comparison:** `docs/Tool-Landscape.md`
+- **Status command:** `python3 scripts/lab-status.py` from the repo root (`--track <id>` for
+  one track, `--json` for everything). Read-only: labs in progress with where you stopped and
+  the next step, due reviews, assessment readiness, the labs ready to start, and warnings.
 
 ## Tutor
 
@@ -48,6 +51,15 @@ from `ai-common`. The skills hold the procedure; this file holds this repo's val
 - Before a track or lab starts, `prereq-check` runs: the prerequisites in this repo (track and
   lab READMEs, the graphs, their Status lines, NOTES, open questions, overdue review questions)
   and online sources for missing prerequisites. It proposes, the learner decides.
+- **Entry point:** start Claude Code at the repo root and run `learn` (`/learn`, or
+  `/learn <what you want>`). It shows where you stand, recommends, and hands over to the other
+  skills. It moves the shell into the lab folder once a lab is chosen.
+- **Recommendations:** at most 5, each with its reason (the graph, a done lab it builds on, an
+  assessment gap, an open question, a web source) and its cost (tier, RAM, disk). They may
+  include topics with no lab in any graph yet; those go through `plan-lab`.
+- **Interview:** only about learning: what you want to understand or build, how deep, how
+  much time you have for it. Asked in the session, never stored. Nothing about jobs or career
+  goals is asked for or written down. What persists is what you pick, as a lab brief.
 
 ## Tracks
 
@@ -94,8 +106,15 @@ A new track gets a folder `labs/<id>/` with a `README.md`, a row here, a node in
 
 ## Session logs
 
-- **Labs:** append to `labs/<track>/<lab>/NOTES.md` under a dated `## Session YYYY-MM-DD` heading.
-- **Assessments:** `assessments/<subject>/sessions/YYYY-MM-DD-<level>.md`.
+- **Labs:** append to `labs/<track>/<lab>/NOTES.md` under `## Session YYYY-MM-DD: <goal>`,
+  newest last.
+- **Assessments:** `assessments/<subject>/sessions/YYYY-MM-DD-<level>.md`, same fields.
+- **Format:** one bullet per field, in this order and with these exact labels (the lab template's
+  `NOTES.md` shows it; `scripts/lab-status.py` reads the last two):
+  `- **Goal:**` · `- **What I can now explain:**` · `- **What I built or changed:**` ·
+  `- **Misconceptions fixed:**` · `- **Still open:**` · `- **Where I stopped:**` ·
+  `- **Next step:**`. Leave out a field only when there is nothing to say; never leave out
+  **Where I stopped** and **Next step** while a lab is `learning` or `building`.
 - Write in the learner's words: what they figured out, what's still open, and the next step.
 
 ## Review queue
@@ -116,6 +135,11 @@ A new track gets a folder `labs/<id>/` with a `README.md`, a row here, a node in
   like any other edit, so it travels with git. GitHub issues, if any, are extras.
 - **Graphs:** Mermaid in the root `README.md` Progress section (one node per track) and in every
   `labs/<track>/README.md` (one node per lab). Arrows mean "learn this first".
+- **Node ids:** a track node's id is the track id (`foundations`); a lab node's id is the lab id
+  with `-` replaced by `_` (lab `ml-math` → node `ml_math`). The id is how a node is matched
+  to its row in the lab table, so the order of nodes and rows doesn't matter. A new lab gets
+  its row and its node with that id together; `scripts/check_docs.py` (CI) fails on a node
+  without a row or a row without a node.
 - **Status classes:** `classDef todo`, `learning`, `building`, `done`, one `class <ids> <status>`
   line per status. A track node is `done` when all its labs are done, `learning`/`building`
   when any lab has started (the furthest along wins), otherwise `todo`. A planned lab without a

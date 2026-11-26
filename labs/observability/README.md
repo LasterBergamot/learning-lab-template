@@ -17,27 +17,27 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  PIL["Logs, metrics, traces"]
-  PROM["Prometheus and Grafana"]
-  OTEL["OpenTelemetry"]
-  JAEG["Jaeger"]
-  SPL["Splunk Enterprise and SPL"]
-  DD["Datadog (trial)"]
-  SO11Y["Splunk Observability Cloud (trial)"]
-  SLO["SLOs and alerting"]
-  PIL --> PROM
-  PIL --> OTEL
-  OTEL --> JAEG
-  PIL --> SPL
-  JAEG --> DD
-  JAEG --> SO11Y
-  PROM --> SLO
+  three_pillars["Logs, metrics, traces"]
+  prometheus_grafana["Prometheus and Grafana"]
+  opentelemetry["OpenTelemetry"]
+  jaeger["Jaeger"]
+  splunk_enterprise["Splunk Enterprise and SPL"]
+  datadog["Datadog (trial)"]
+  splunk_observability_cloud["Splunk Observability Cloud (trial)"]
+  slo_alerting["SLOs and alerting"]
+  three_pillars --> prometheus_grafana
+  three_pillars --> opentelemetry
+  opentelemetry --> jaeger
+  three_pillars --> splunk_enterprise
+  jaeger --> datadog
+  jaeger --> splunk_observability_cloud
+  prometheus_grafana --> slo_alerting
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class PIL,PROM,OTEL,JAEG,SPL,DD,SO11Y,SLO todo
+  class three_pillars,prometheus_grafana,opentelemetry,jaeger,splunk_enterprise,datadog,splunk_observability_cloud,slo_alerting todo
 ```
 <!-- roadmap-sync:end -->
 

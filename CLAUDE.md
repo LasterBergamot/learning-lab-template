@@ -16,6 +16,7 @@ code**; the learner builds everything.
 
 | Working on | Read |
 |------------|------|
+| Starting a session: what to work on, continuing or picking up a lab | the `learn` skill; `python3 scripts/lab-status.py` for where things stand |
 | Tutoring, lab planning, picking up a track, session logs, review queue, graphs, sources | `.claude/context/learning.md` |
 | Anything under `labs/` | `labs/_template/README.md` (the lab contract), `docs/Platforms.md`, `docs/Isolation.md` (`.claude/rules/labs.md` loads too) |
 | Anything under `assessments/` | `assessments/README.md` (`.claude/rules/assessments.md` loads too) |

@@ -14,7 +14,9 @@ for one level.
 > Details: [Template](docs/Template.md).
 
 This README is the router: it says what this is and how it works, what you need installed,
-where you stand (the progress graph), and links to every track and page.
+how to learn here ([Learning, step by step](#learning-step-by-step): open Claude Code at the
+repo root and run `/learn`), where you stand (the progress graph), and links to every track and
+page.
 
 ## How it works
 
@@ -60,6 +62,57 @@ bash scripts/prereqs.sh --install                # installs what is missing, ask
   aliases) and ai-common's guard hooks ([Setup](docs/Setup.md) steps 9 and 10).
 
 The full runbook, step by step with the expected result of each step, is [Setup](docs/Setup.md).
+
+## Learning, step by step
+
+You need one command and one skill. Start Claude Code **at the repo root** (not inside a lab
+folder) and run `/learn`:
+
+```bash
+cd learning-lab
+claude
+> /learn
+```
+
+**1. It shows where you stand.** `/learn` runs `python3 scripts/lab-status.py` (you can run it
+yourself too) and gives you a short overview:
+
+```text
+In progress
+  ai/rag  building  (labs/ai/rag) · last session 2026-11-25: steps 1–3 of the walkthrough
+    stopped: store_faiss.py has a TODO for step 4, retrieval. main.py is still empty.
+    next:    step 4, retrieval. Then wire the steps together into one entry point.
+Review queue: 2 due of 9
+Ready to start: foundations: linux-processes, networking-tcpip, … · ai: ml-math
+```
+
+**2. You say what you want.** Pick from the overview, or just say it in your own words. You can
+also say it straight away: `/learn continue rag`.
+
+| You say | What happens |
+|---|---|
+| "continue rag" | It reads the lab's last notes entry, moves into `labs/ai/rag/`, and `socratic-tutor` starts from the **Next step** |
+| "what should I learn next?" | It asks up to three questions about what you want to learn (what, how deep, how much time), checks your progress, the graphs and the web, and recommends up to five labs, each with a reason and its cost |
+| "I want to learn Kafka" | It finds the lab in the graphs, or plans a new one: `plan-lab` runs `prereq-check`, writes the brief with you and adds it to the track graph. Then the tutoring starts |
+| "do my reviews" | `review-quiz` asks the recall questions that are due |
+| "prepare the prompt-engineering assessment" | `assessment-prep` (or `import-matrix` first, if there is no matrix yet) |
+
+**3. You learn.** The tutor asks questions, you write every line of code yourself in the lab
+folder, in your own terminal. When you're stuck, it gives hints one rung at a time
+([How I Learn](docs/How-I-Learn.md)).
+
+**4. You stop.** Say you're done. `session-log` writes the session into the lab's `NOTES.md`
+in your words, ending with **Where I stopped** and **Next step**. It also adds recall questions
+to the review queue, records the sources, proposes the Status change, and proposes a checkpoint
+commit and push. It asks before every git command. Next time, on any machine, `/learn` picks up
+from that entry.
+
+Nothing about you is stored apart from your learning record: notes, Status lines, the review
+queue, assessment readiness and the lab briefs you chose. The answers you give when it asks
+what to learn are only used in that session. The skills below still work on their own if you
+want to call one directly: `plan-lab <track>/<lab>`, `socratic-tutor`, `prereq-check`,
+`session-log`, `review-quiz`, `roadmap-sync` (updates the graphs and the readiness heatmap),
+`import-matrix <subject>` and `assessment-prep <subject> <level>`.
 
 ## Progress
 
@@ -125,6 +178,13 @@ flowchart LR
 
 The region between the `roadmap-sync` markers is rewritten by the `roadmap-sync` skill from
 the labs' `**Status:**` lines. Don't edit the `class` lines by hand.
+
+Each box's id is what ties it to its lab, so order doesn't matter. In this graph a box is
+named after its track (`foundations`). In a track's graph a box is named after its lab, with
+`-` written as `_`: the `ml-math` row in the lab table belongs to the `ml_math` box. If you
+change a track's plan by hand, add or rename the box and its table row together. CI
+(`scripts/check_docs.py`) fails on a box without a row or a row without a box. `plan-lab`
+follows the same rule.
 
 ### Legend
 
@@ -243,17 +303,6 @@ folder looks: [labs/README.md](labs/README.md).
 - [Assessments](docs/Assessments.md) and [assessments/README.md](assessments/README.md): skill-evaluation prep and the readiness heatmap
 - [CLAUDE.md](CLAUDE.md): the rules Claude Code follows here
 
-## Starting something
-
-- **A lab:** ask Claude Code for `plan-lab <track>/<lab>`. It runs `prereq-check`, then writes
-  `labs/<track>/<lab>/README.md` from the template, links the prerequisites, records its
-  sources and adds the lab to its track graph. Then run `socratic-tutor` and build it yourself.
-- **An assessment prep:** run `import-matrix <subject>` and paste the matrix, then
-  `assessment-prep <subject> <level>`. See [assessments/README.md](assessments/README.md).
-- **After a session:** `session-log` records it, adds recall questions and sources, proposes the
-  Status change and a checkpoint commit. `review-quiz` runs the spaced-repetition queue.
-  `roadmap-sync` updates the graphs and the readiness heatmap.
-
 ## Sources
 
 Every online source used for a topic, track or lab (docs, specs, RFCs, articles, roadmaps,
@@ -273,8 +322,9 @@ another (a fresh VM, a reinstall).
   state, kubeconfigs, build output, container volumes, `apm_modules/`.
 - **End of a session:** `session-log` proposes a commit (`<track>/<lab>: <what you did>`) and a
   push. It asks first every time. Work-in-progress commits are fine.
-- **Resume:** `git pull`, then `bash scripts/prereqs.sh --check --track <id>`. The lab's
-  `NOTES.md` says where you stopped.
+- **Resume:** `git pull`, then `bash scripts/prereqs.sh --check --track <id>`. The last entry
+  in the lab's `NOTES.md` says where you stopped and the next step; `/learn` (or
+  `python3 scripts/lab-status.py`) shows it for every lab in progress.
 
 ## Layout
 
@@ -283,7 +333,7 @@ learning-lab/
 ├── README.md              this router
 ├── CLAUDE.md              the AI rules and router for Claude Code
 ├── apm.yml, apm.lock.yaml AI skills and agents pinned from ai-common
-├── scripts/               prereqs.sh, docs checks, template-sync.sh
+├── scripts/               prereqs.sh, lab-status.py, docs checks, template-sync.sh
 ├── .github/               CI on Linux, issue forms
 ├── .claude/               context files, settings, output style, path rules, deployed skills
 ├── docs/                  cross-cutting pages: setup, platforms, isolation, method, tools

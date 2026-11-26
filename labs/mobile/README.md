@@ -17,21 +17,21 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  DART["Dart basics"]
-  WID["Widgets and state"]
-  DW["Desktop and web targets"]
-  NETW["Talking to an API"]
-  AND["Android emulator"]
-  DART --> WID
-  WID --> DW
-  WID --> NETW
-  DW --> AND
+  dart["Dart basics"]
+  flutter_widgets_state["Widgets and state"]
+  flutter_desktop_web["Desktop and web targets"]
+  flutter_networking["Talking to an API"]
+  flutter_android["Android emulator"]
+  dart --> flutter_widgets_state
+  flutter_widgets_state --> flutter_desktop_web
+  flutter_widgets_state --> flutter_networking
+  flutter_desktop_web --> flutter_android
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class DART,WID,DW,NETW,AND todo
+  class dart,flutter_widgets_state,flutter_desktop_web,flutter_networking,flutter_android todo
 ```
 <!-- roadmap-sync:end -->
 

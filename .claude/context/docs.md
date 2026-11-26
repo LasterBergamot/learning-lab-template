@@ -41,6 +41,8 @@ this file says which docs this repo has and the steps specific to it.
   on Linux (`.github/workflows/check.yml`).
 - After a lab or assessment status changes, run `roadmap-sync`. It owns the blocks between
   `<!-- roadmap-sync:start -->` and `<!-- roadmap-sync:end -->`; never edit them by hand.
+- A lab in a track graph: its node id is the lab id with `-` as `_`, and it has a row in the
+  lab table under the graph; add or rename both together (`learning.md`, Node ids).
 - A new track: a `labs/<id>/README.md`, a node and a link in the root `README.md`, a row in
   `.claude/context/learning.md` (Tracks) and a `track:<id>` label.
 - Online sources go into the References section of the relevant README (see `learning.md`).

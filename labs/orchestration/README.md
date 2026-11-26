@@ -19,32 +19,32 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  K8S["Kubernetes core (kind)"]
-  KNET["Services, ingress, networking"]
-  KSTO["Storage and stateful sets"]
-  HELM["Helm"]
-  ARGO["GitOps with Argo CD"]
-  OCP["OpenShift"]
-  ISTIO["Istio service mesh"]
-  CMESH["Chaos engineering with Chaos Mesh"]
-  SPIN["Spinnaker (optional)"]
-  CMON["Chaos Monkey (history)"]
-  DOKKU["Dokku on a VM"]
-  K8S --> KNET
-  K8S --> KSTO
-  K8S --> HELM
-  HELM --> ARGO
-  K8S --> OCP
-  KNET --> ISTIO
-  K8S --> CMESH
-  ARGO --> SPIN
-  SPIN --> CMON
+  kubernetes_core["Kubernetes core (kind)"]
+  kubernetes_networking["Services, ingress, networking"]
+  kubernetes_storage["Storage and stateful sets"]
+  helm["Helm"]
+  argo_cd["GitOps with Argo CD"]
+  openshift["OpenShift"]
+  istio["Istio service mesh"]
+  chaos_mesh["Chaos engineering with Chaos Mesh"]
+  spinnaker["Spinnaker (optional)"]
+  chaos_monkey["Chaos Monkey (history)"]
+  dokku["Dokku on a VM"]
+  kubernetes_core --> kubernetes_networking
+  kubernetes_core --> kubernetes_storage
+  kubernetes_core --> helm
+  helm --> argo_cd
+  kubernetes_core --> openshift
+  kubernetes_networking --> istio
+  kubernetes_core --> chaos_mesh
+  argo_cd --> spinnaker
+  spinnaker --> chaos_monkey
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class K8S,KNET,KSTO,HELM,ARGO,OCP,ISTIO,CMESH,SPIN,CMON,DOKKU todo
+  class kubernetes_core,kubernetes_networking,kubernetes_storage,helm,argo_cd,openshift,istio,chaos_mesh,spinnaker,chaos_monkey,dokku todo
 ```
 <!-- roadmap-sync:end -->
 

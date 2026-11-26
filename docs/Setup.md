@@ -154,7 +154,7 @@ Nothing to install: the skills and agents are committed, deployed by APM to `.cl
 and `.claude/agents/`. Run `apm install` only after changing the ai-common tag in `apm.yml`.
 Claude Code reads `CLAUDE.md`.
 
-**Expected:** in Claude Code, `/` lists `socratic-tutor`, `plan-lab`, `prereq-check`,
+**Expected:** in Claude Code, `/` lists `learn`, `socratic-tutor`, `plan-lab`, `prereq-check`,
 `session-log`, `review-quiz`, `assessment-prep`, `import-matrix` and `roadmap-sync`. Asking
 "write me a FastAPI hello world" gets questions back, not code.
 
@@ -169,9 +169,11 @@ works; delete the folder afterwards.
 
 ```bash
 python3 scripts/check_docs.py
+python3 scripts/lab-status.py
 ```
 
-**Expected:** `OK` and exit code 0. CI runs the same check.
+**Expected:** `OK` and exit code 0 from the first; CI runs the same check. The second prints
+the learning overview (on a fresh repo: nothing in progress, and the labs ready to start).
 
 ## Finish
 
@@ -185,5 +187,9 @@ git pull
 bash scripts/prereqs.sh --check --track <id>   # the track you are working on
 ```
 
-The lab's `NOTES.md` says where you stopped. Everything else (Status lines, the review queue,
-assessments) is in the repo too.
+Then start Claude Code at the repo root and run `/learn`: it shows where you stopped and the
+next step, from the last entry in the lab's `NOTES.md`. Everything else (Status lines, the
+review queue, assessments) is in the repo too.
+
+To start learning on a fresh setup, do the same: `/learn` at the repo root (README,
+[Learning, step by step](../README.md#learning-step-by-step)).

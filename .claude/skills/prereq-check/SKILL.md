@@ -56,7 +56,8 @@ Input: a track id, a lab path or a topic. If it is ambiguous, ask which one.
 
 - The learner may go ahead regardless. Never refuse to continue because of a gap.
 - Apply only the edits they agreed to. Inside the `roadmap-sync` markers, add nodes and edges
-  only; a new node goes on the `todo` class line.
+  only; a new node goes on the `todo` class line, with its id from the context file's node-id
+  rule and a matching row in the lab table.
 - Hand back to the skill that called you (`plan-lab` or `socratic-tutor`), or suggest
   `plan-lab` for a missing prerequisite lab.
 

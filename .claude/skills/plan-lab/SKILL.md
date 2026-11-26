@@ -60,8 +60,10 @@ Show the draft to the learner, and change it until they agree.
 ## 4. Place it in the graphs
 
 - Add the lab as a node to the track README's Mermaid graph, with edges from its
-  prerequisites, and add the node to the `todo` class line. Add a row to the table under the
-  graph linking the node to the lab folder. If the root README's overview gains a new
+  prerequisites, and add the node to the `todo` class line. The node's id follows the node-id
+  rule in the context file (default: the lab id with `-` replaced by `_`); that id, not the
+  position, is what ties the node to its row. Add the row to the table under the graph in the
+  same change, linking the lab to its folder. If the root README's overview gains a new
   track-level edge, add it there too.
 - Inside the generated markers, nodes and edges are yours to add, but the `class` lines belong
   to `roadmap-sync`. Add the new node to the `todo` line only, and tell the learner they can run

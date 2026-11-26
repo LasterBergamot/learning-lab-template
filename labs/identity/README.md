@@ -23,38 +23,38 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  JWT["JWT internals: JWS, JWE, JWK/JWKS, claims, alg pitfalls"]
-  KC["Keycloak as a local identity provider"]
-  ACP["OAuth 2: authorization code + PKCE"]
-  CC["OAuth 2: client credentials"]
-  RDF["Refresh tokens and the device flow"]
-  OIDC["OpenID Connect: ID token vs. access token"]
-  INTRO["Introspection and revocation"]
-  TX["Token exchange (RFC 8693)"]
-  JB["JWT bearer and private_key_jwt (RFC 7523)"]
-  SCT["Sender-constrained tokens: mTLS, DPoP"]
-  RS["Spring Security resource server"]
-  PASS["Passkeys and WebAuthn"]
-  JWT --> ACP
-  KC --> ACP
-  JWT --> CC
-  KC --> CC
-  ACP --> RDF
-  ACP --> OIDC
-  CC --> INTRO
-  CC --> TX
-  JWT --> JB
-  CC --> JB
-  CC --> SCT
-  JWT --> RS
-  CC --> RS
-  OIDC --> PASS
+  jwt["JWT internals: JWS, JWE, JWK/JWKS, claims, alg pitfalls"]
+  keycloak_idp["Keycloak as a local identity provider"]
+  oauth2_auth_code_pkce["OAuth 2: authorization code + PKCE"]
+  oauth2_client_credentials["OAuth 2: client credentials"]
+  refresh_device_flow["Refresh tokens and the device flow"]
+  oidc["OpenID Connect: ID token vs. access token"]
+  introspection_revocation["Introspection and revocation"]
+  token_exchange["Token exchange (RFC 8693)"]
+  jwt_bearer_client_auth["JWT bearer and private_key_jwt (RFC 7523)"]
+  sender_constrained_tokens["Sender-constrained tokens: mTLS, DPoP"]
+  spring_resource_server["Spring Security resource server"]
+  passkeys_webauthn["Passkeys and WebAuthn"]
+  jwt --> oauth2_auth_code_pkce
+  keycloak_idp --> oauth2_auth_code_pkce
+  jwt --> oauth2_client_credentials
+  keycloak_idp --> oauth2_client_credentials
+  oauth2_auth_code_pkce --> refresh_device_flow
+  oauth2_auth_code_pkce --> oidc
+  oauth2_client_credentials --> introspection_revocation
+  oauth2_client_credentials --> token_exchange
+  jwt --> jwt_bearer_client_auth
+  oauth2_client_credentials --> jwt_bearer_client_auth
+  oauth2_client_credentials --> sender_constrained_tokens
+  jwt --> spring_resource_server
+  oauth2_client_credentials --> spring_resource_server
+  oidc --> passkeys_webauthn
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class JWT,KC,ACP,CC,RDF,OIDC,INTRO,TX,JB,SCT,RS,PASS todo
+  class jwt,keycloak_idp,oauth2_auth_code_pkce,oauth2_client_credentials,refresh_device_flow,oidc,introspection_revocation,token_exchange,jwt_bearer_client_auth,sender_constrained_tokens,spring_resource_server,passkeys_webauthn todo
 ```
 <!-- roadmap-sync:end -->
 

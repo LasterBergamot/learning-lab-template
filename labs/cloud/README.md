@@ -17,31 +17,31 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  FUND["Cloud fundamentals and pricing"]
-  IAM["IAM"]
-  AWS["AWS core: compute, storage, VPC"]
-  LS["LocalStack"]
-  SLS["Serverless: Lambda, queues"]
-  GCP["GCP core and emulators"]
-  AZ["Azure core and Azurite"]
-  XC["Cross-cloud comparison"]
-  CC["Diagrams with Cloudcraft"]
-  FUND --> IAM
-  IAM --> AWS
-  AWS --> LS
-  LS --> SLS
-  FUND --> GCP
-  FUND --> AZ
-  AWS --> XC
-  GCP --> XC
-  AZ --> XC
-  AWS --> CC
+  cloud_fundamentals["Cloud fundamentals and pricing"]
+  iam["IAM"]
+  aws_core["AWS core: compute, storage, VPC"]
+  localstack["LocalStack"]
+  aws_serverless["Serverless: Lambda, queues"]
+  gcp_core["GCP core and emulators"]
+  azure_core["Azure core and Azurite"]
+  cross_cloud["Cross-cloud comparison"]
+  cloudcraft["Diagrams with Cloudcraft"]
+  cloud_fundamentals --> iam
+  iam --> aws_core
+  aws_core --> localstack
+  localstack --> aws_serverless
+  cloud_fundamentals --> gcp_core
+  cloud_fundamentals --> azure_core
+  aws_core --> cross_cloud
+  gcp_core --> cross_cloud
+  azure_core --> cross_cloud
+  aws_core --> cloudcraft
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class FUND,IAM,AWS,LS,SLS,GCP,AZ,XC,CC todo
+  class cloud_fundamentals,iam,aws_core,localstack,aws_serverless,gcp_core,azure_core,cross_cloud,cloudcraft todo
 ```
 <!-- roadmap-sync:end -->
 

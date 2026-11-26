@@ -17,25 +17,25 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  REST["API design: REST"]
-  GRPC["gRPC"]
-  GQL["GraphQL"]
-  AAPI["AsyncAPI"]
-  DDD["Domain-driven design"]
-  HEX["Hexagonal architecture"]
-  ES["Event sourcing and CQRS"]
-  PERF["Performance profiling, flame graphs"]
-  REST --> GRPC
-  REST --> GQL
-  REST --> AAPI
-  DDD --> HEX
-  DDD --> ES
+  api_design_rest["API design: REST"]
+  grpc["gRPC"]
+  graphql["GraphQL"]
+  asyncapi["AsyncAPI"]
+  ddd["Domain-driven design"]
+  hexagonal["Hexagonal architecture"]
+  event_sourcing_cqrs["Event sourcing and CQRS"]
+  profiling["Performance profiling, flame graphs"]
+  api_design_rest --> grpc
+  api_design_rest --> graphql
+  api_design_rest --> asyncapi
+  ddd --> hexagonal
+  ddd --> event_sourcing_cqrs
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class REST,GRPC,GQL,AAPI,DDD,HEX,ES,PERF todo
+  class api_design_rest,grpc,graphql,asyncapi,ddd,hexagonal,event_sourcing_cqrs,profiling todo
 ```
 <!-- roadmap-sync:end -->
 

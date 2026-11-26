@@ -22,16 +22,23 @@ path instead.
 
 ## 2. Write the entry
 
-Use the session-log format from the context file. The default, appended under a
-`## YYYY-MM-DD: <goal>` heading:
+Use the session-log format from the context file exactly: its heading and its field labels,
+in its order. Tools (and the `learn` skill) read the last entry, so don't rename, merge or
+reorder fields. The default, appended (newest last) under a `## Session YYYY-MM-DD: <goal>`
+heading, one `- **Label:** text` bullet per field:
 
-- **Goal**: what this session set out to do
-- **What I can now explain**: in the learner's own words, quoted or closely paraphrased from
+- **Goal:** what this session set out to do
+- **What I can now explain:** in the learner's own words, quoted or closely paraphrased from
   the conversation, never your explanation
-- **What I built or changed**: in prose, with links to the learner's files
-- **Misconceptions fixed**: what was believed, and what is understood now
-- **Still unclear / open questions**: also appended to the lab's questions file if it has one
-- **Next step**
+- **What I built or changed:** in prose, with links to the learner's files
+- **Misconceptions fixed:** what was believed, and what is understood now
+- **Still open:** also appended to the lab's questions file if it has one
+- **Where I stopped:** the exact point (file, step, error), so the next session can pick up
+- **Next step:** the first thing to do next time
+
+Leave out a field only when there is nothing to say, except **Where I stopped** and **Next
+step**, which every entry has while the lab is in progress. If the previous entry is in an
+older shape, say so and offer to rewrite it into this one, keeping the learner's words.
 
 Show the entry before writing it, and apply the learner's corrections. It is their record.
 

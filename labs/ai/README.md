@@ -17,34 +17,34 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  MATH["ML maths: linear algebra, probability"]
-  LLM["LLM fundamentals: tokens, embeddings, attention"]
-  PE["Prompt engineering"]
-  SAMP["Sampling parameters"]
-  EMB["Embeddings and vector search"]
-  RAG["RAG"]
-  EVAL["Evals"]
-  AGT["Agents and tool use"]
-  MCP["Model Context Protocol"]
-  HARN["Harnesses and guardrails"]
-  LOCAL["Small local models (Ollama, CPU)"]
-  MATH --> LLM
-  LLM --> PE
-  PE --> SAMP
-  LLM --> EMB
-  PE --> RAG
-  EMB --> RAG
-  RAG --> EVAL
-  EVAL --> AGT
-  AGT --> MCP
-  AGT --> HARN
-  LLM --> LOCAL
+  ml_math["ML maths: linear algebra, probability"]
+  llm_fundamentals["LLM fundamentals: tokens, embeddings, attention"]
+  prompt_engineering["Prompt engineering"]
+  sampling_parameters["Sampling parameters"]
+  vector_search["Embeddings and vector search"]
+  rag["RAG"]
+  evals["Evals"]
+  agents_tool_use["Agents and tool use"]
+  mcp["Model Context Protocol"]
+  harnesses_guardrails["Harnesses and guardrails"]
+  local_models["Small local models (Ollama, CPU)"]
+  ml_math --> llm_fundamentals
+  llm_fundamentals --> prompt_engineering
+  prompt_engineering --> sampling_parameters
+  llm_fundamentals --> vector_search
+  prompt_engineering --> rag
+  vector_search --> rag
+  rag --> evals
+  evals --> agents_tool_use
+  agents_tool_use --> mcp
+  agents_tool_use --> harnesses_guardrails
+  llm_fundamentals --> local_models
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class MATH,LLM,PE,SAMP,EMB,RAG,EVAL,AGT,MCP,HARN,LOCAL todo
+  class ml_math,llm_fundamentals,prompt_engineering,sampling_parameters,vector_search,rag,evals,agents_tool_use,mcp,harnesses_guardrails,local_models todo
 ```
 <!-- roadmap-sync:end -->
 

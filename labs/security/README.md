@@ -17,21 +17,21 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  TLS["TLS and PKI, your own CA"]
-  MTLS["Mutual TLS"]
-  PQ["Post-quantum TLS (hybrid key exchange)"]
-  SEC["Secrets management (Vault / OpenBao)"]
-  SUP["Supply chain: SBOM, Sigstore"]
-  THREAT["Threat modelling and the OWASP Top 10"]
-  TLS --> MTLS
-  TLS --> PQ
-  TLS --> SEC
+  tls_pki["TLS and PKI, your own CA"]
+  mtls["Mutual TLS"]
+  post_quantum_tls["Post-quantum TLS (hybrid key exchange)"]
+  secrets_management["Secrets management (Vault / OpenBao)"]
+  supply_chain["Supply chain: SBOM, Sigstore"]
+  threat_modeling_owasp["Threat modelling and the OWASP Top 10"]
+  tls_pki --> mtls
+  tls_pki --> post_quantum_tls
+  tls_pki --> secrets_management
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class TLS,MTLS,PQ,SEC,SUP,THREAT todo
+  class tls_pki,mtls,post_quantum_tls,secrets_management,supply_chain,threat_modeling_owasp todo
 ```
 <!-- roadmap-sync:end -->
 

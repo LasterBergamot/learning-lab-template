@@ -17,30 +17,30 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  JMM["Java Memory Model, happens-before"]
-  LOCK["Threads, locks, atomics"]
-  EXEC["Executors and futures"]
-  CF["CompletableFuture composition"]
-  FJ["Fork/join and parallel streams"]
-  VT["Virtual threads"]
-  SC["Structured concurrency"]
-  JFR["JFR and garbage collection"]
-  JMH["Benchmarking with JMH"]
-  SB["Spring Boot"]
-  JMM --> LOCK
-  LOCK --> EXEC
-  EXEC --> CF
-  EXEC --> FJ
-  EXEC --> VT
-  VT --> SC
-  FJ --> JMH
-  JFR --> JMH
+  java_memory_model["Java Memory Model, happens-before"]
+  threads_locks["Threads, locks, atomics"]
+  executors_futures["Executors and futures"]
+  completablefuture["CompletableFuture composition"]
+  fork_join_parallel["Fork/join and parallel streams"]
+  virtual_threads["Virtual threads"]
+  structured_concurrency["Structured concurrency"]
+  jfr_gc["JFR and garbage collection"]
+  jmh["Benchmarking with JMH"]
+  spring_boot["Spring Boot"]
+  java_memory_model --> threads_locks
+  threads_locks --> executors_futures
+  executors_futures --> completablefuture
+  executors_futures --> fork_join_parallel
+  executors_futures --> virtual_threads
+  virtual_threads --> structured_concurrency
+  fork_join_parallel --> jmh
+  jfr_gc --> jmh
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class JMM,LOCK,EXEC,CF,FJ,VT,SC,JFR,JMH,SB todo
+  class java_memory_model,threads_locks,executors_futures,completablefuture,fork_join_parallel,virtual_threads,structured_concurrency,jfr_gc,jmh,spring_boot todo
 ```
 <!-- roadmap-sync:end -->
 

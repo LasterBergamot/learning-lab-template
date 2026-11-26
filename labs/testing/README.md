@@ -23,44 +23,44 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  PYR["The pyramid vs. trophy vs. honeycomb"]
-  UNIT["Unit tests: JUnit, AssertJ"]
-  DBL["Test doubles: Mockito, fakes, stubs"]
-  TDD["TDD katas: red, green, refactor"]
-  PBT["Property-based tests: jqwik"]
-  PIT["Mutation testing: PIT"]
-  SLICE["Spring slice tests"]
-  TC["Integration: Testcontainers"]
-  WM["HTTP stubs: WireMock"]
-  CT["Contract tests: Pact / Spring Cloud Contract"]
-  RA["API tests: REST Assured"]
-  BDD["BDD: Cucumber-JVM, Gherkin"]
-  E2E["End-to-end: Playwright for Java"]
-  ARCH["Architecture tests: ArchUnit"]
-  PERF["Performance tests: Gatling"]
-  PYR --> UNIT
-  UNIT --> DBL
-  UNIT --> TDD
-  DBL --> TDD
-  UNIT --> PBT
-  UNIT --> PIT
-  DBL --> SLICE
-  SLICE --> TC
-  SLICE --> WM
-  TC --> CT
-  WM --> CT
-  SLICE --> RA
-  RA --> BDD
-  TDD --> BDD
-  RA --> E2E
-  UNIT --> ARCH
-  RA --> PERF
+  pyramid_shapes["The pyramid vs. trophy vs. honeycomb"]
+  unit_junit_assertj["Unit tests: JUnit, AssertJ"]
+  test_doubles_mockito["Test doubles: Mockito, fakes, stubs"]
+  tdd_katas["TDD katas: red, green, refactor"]
+  property_based_jqwik["Property-based tests: jqwik"]
+  mutation_pit["Mutation testing: PIT"]
+  spring_slice_tests["Spring slice tests"]
+  integration_testcontainers["Integration: Testcontainers"]
+  http_stubs_wiremock["HTTP stubs: WireMock"]
+  contract_tests["Contract tests: Pact / Spring Cloud Contract"]
+  api_tests_rest_assured["API tests: REST Assured"]
+  bdd_cucumber["BDD: Cucumber-JVM, Gherkin"]
+  e2e_playwright["End-to-end: Playwright for Java"]
+  architecture_archunit["Architecture tests: ArchUnit"]
+  performance_gatling["Performance tests: Gatling"]
+  pyramid_shapes --> unit_junit_assertj
+  unit_junit_assertj --> test_doubles_mockito
+  unit_junit_assertj --> tdd_katas
+  test_doubles_mockito --> tdd_katas
+  unit_junit_assertj --> property_based_jqwik
+  unit_junit_assertj --> mutation_pit
+  test_doubles_mockito --> spring_slice_tests
+  spring_slice_tests --> integration_testcontainers
+  spring_slice_tests --> http_stubs_wiremock
+  integration_testcontainers --> contract_tests
+  http_stubs_wiremock --> contract_tests
+  spring_slice_tests --> api_tests_rest_assured
+  api_tests_rest_assured --> bdd_cucumber
+  tdd_katas --> bdd_cucumber
+  api_tests_rest_assured --> e2e_playwright
+  unit_junit_assertj --> architecture_archunit
+  api_tests_rest_assured --> performance_gatling
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class PYR,UNIT,DBL,TDD,PBT,PIT,SLICE,TC,WM,CT,RA,BDD,E2E,ARCH,PERF todo
+  class pyramid_shapes,unit_junit_assertj,test_doubles_mockito,tdd_katas,property_based_jqwik,mutation_pit,spring_slice_tests,integration_testcontainers,http_stubs_wiremock,contract_tests,api_tests_rest_assured,bdd_cucumber,e2e_playwright,architecture_archunit,performance_gatling todo
 ```
 <!-- roadmap-sync:end -->
 

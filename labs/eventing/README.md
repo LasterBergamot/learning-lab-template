@@ -18,31 +18,31 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  MSG["Queues vs. logs, delivery guarantees"]
-  JMS["JMS basics"]
-  MQ["IBM MQ"]
-  RMQ["RabbitMQ"]
-  NATS["NATS and JetStream"]
-  KAF["Kafka core"]
-  KCON["Kafka Connect"]
-  CDC["CDC with Debezium"]
-  OUT["The outbox pattern"]
-  FLINK["Stream processing with Flink"]
-  MSG --> JMS
-  JMS --> MQ
-  MSG --> RMQ
-  MSG --> NATS
-  MSG --> KAF
-  KAF --> KCON
-  KCON --> CDC
-  CDC --> OUT
-  KAF --> FLINK
+  messaging_concepts["Queues vs. logs, delivery guarantees"]
+  jms["JMS basics"]
+  ibm_mq["IBM MQ"]
+  rabbitmq["RabbitMQ"]
+  nats["NATS and JetStream"]
+  kafka_core["Kafka core"]
+  kafka_connect["Kafka Connect"]
+  cdc_debezium["CDC with Debezium"]
+  outbox["The outbox pattern"]
+  flink["Stream processing with Flink"]
+  messaging_concepts --> jms
+  jms --> ibm_mq
+  messaging_concepts --> rabbitmq
+  messaging_concepts --> nats
+  messaging_concepts --> kafka_core
+  kafka_core --> kafka_connect
+  kafka_connect --> cdc_debezium
+  cdc_debezium --> outbox
+  kafka_core --> flink
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class MSG,JMS,MQ,RMQ,NATS,KAF,KCON,CDC,OUT,FLINK todo
+  class messaging_concepts,jms,ibm_mq,rabbitmq,nats,kafka_core,kafka_connect,cdc_debezium,outbox,flink todo
 ```
 <!-- roadmap-sync:end -->
 

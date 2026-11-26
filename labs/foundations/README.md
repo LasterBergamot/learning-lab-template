@@ -17,28 +17,28 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  PROC["Processes, syscalls, signals"]
-  FS["Files, permissions, users"]
-  NS["Namespaces and cgroups"]
-  SH["Shell and scripting"]
-  TCP["TCP/IP and sockets"]
-  DNS["DNS"]
-  HTTP["HTTP/1.1 → 2 → 3 (QUIC)"]
-  LB["Proxies and load balancing"]
-  GIT["Git internals"]
-  PROC --> NS
-  PROC --> SH
-  FS --> SH
-  TCP --> DNS
-  TCP --> HTTP
-  HTTP --> LB
-  FS --> GIT
+  linux_processes["Processes, syscalls, signals"]
+  linux_filesystems["Files, permissions, users"]
+  linux_namespaces_cgroups["Namespaces and cgroups"]
+  shell["Shell and scripting"]
+  networking_tcpip["TCP/IP and sockets"]
+  dns["DNS"]
+  http["HTTP/1.1 → 2 → 3 (QUIC)"]
+  load_balancing["Proxies and load balancing"]
+  git_internals["Git internals"]
+  linux_processes --> linux_namespaces_cgroups
+  linux_processes --> shell
+  linux_filesystems --> shell
+  networking_tcpip --> dns
+  networking_tcpip --> http
+  http --> load_balancing
+  linux_filesystems --> git_internals
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class PROC,FS,NS,SH,TCP,DNS,HTTP,LB,GIT todo
+  class linux_processes,linux_filesystems,linux_namespaces_cgroups,shell,networking_tcpip,dns,http,load_balancing,git_internals todo
 ```
 <!-- roadmap-sync:end -->
 

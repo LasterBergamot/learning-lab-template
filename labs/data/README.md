@@ -17,27 +17,27 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  SQL["SQL fundamentals"]
-  PGI["Postgres internals: MVCC, WAL"]
-  IDX["Indexes: B-tree vs. LSM"]
-  ISO["Transactions and isolation levels"]
-  DB2["IBM Db2"]
-  DUCK["DuckDB and analytics"]
-  ICE["Lakehouse with Iceberg"]
-  RED["Redis"]
-  PB["PocketBase"]
-  SQL --> PGI
-  PGI --> IDX
-  PGI --> ISO
-  SQL --> DB2
-  SQL --> DUCK
-  DUCK --> ICE
+  sql["SQL fundamentals"]
+  postgres_internals["Postgres internals: MVCC, WAL"]
+  indexing["Indexes: B-tree vs. LSM"]
+  isolation_levels["Transactions and isolation levels"]
+  ibm_db2["IBM Db2"]
+  duckdb["DuckDB and analytics"]
+  iceberg["Lakehouse with Iceberg"]
+  redis["Redis"]
+  pocketbase["PocketBase"]
+  sql --> postgres_internals
+  postgres_internals --> indexing
+  postgres_internals --> isolation_levels
+  sql --> ibm_db2
+  sql --> duckdb
+  duckdb --> iceberg
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class SQL,PGI,IDX,ISO,DB2,DUCK,ICE,RED,PB todo
+  class sql,postgres_internals,indexing,isolation_levels,ibm_db2,duckdb,iceberg,redis,pocketbase todo
 ```
 <!-- roadmap-sync:end -->
 

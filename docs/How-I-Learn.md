@@ -36,6 +36,17 @@ once you have explained it back. You change it yourself, or `session-log` propos
 `roadmap-sync` then colours the graphs in the [root README](../README.md#progress) and the track
 READMEs.
 
+## Starting a session
+
+Start Claude Code at the repo root and run `/learn`, or say what you want: "continue rag",
+"what should I learn next?", "I want to learn Kafka". It shows the labs in progress (where you
+stopped and the next step, from `NOTES.md`), due reviews and what is ready to start. If you
+want something new, it asks a few questions about what you want to learn, checks the repo and
+the web, and recommends a handful of labs with reasons. Your answers aren't saved; only the lab
+you pick is, as its brief. Then it moves into the lab folder and hands over to the skill that
+fits: `socratic-tutor` to continue, `plan-lab` for a new lab, `review-quiz` or
+`assessment-prep`.
+
 ## Before you pick something up
 
 When you start a new track or lab, the AI first runs `prereq-check`. It looks in this repo
@@ -61,7 +72,9 @@ well gets a longer interval; one you miss comes back sooner.
 Each session ends with `session-log`. It records what you covered, your explanation, open
 questions, the online sources you used (into the lab's References section), a proposed
 `**Status:**` change, and any follow-up issues (as drafts you approve). Lab sessions go in the
-lab's `NOTES.md`; assessment sessions go in `assessments/<subject>/sessions/`. It finishes by
+lab's `NOTES.md`; assessment sessions go in `assessments/<subject>/sessions/`. Every entry has
+the same fields (the lab template's `NOTES.md` shows them), ending with **Where I stopped** and
+**Next step**, which is what `/learn` reads to pick up next time. It finishes by
 proposing a checkpoint commit and push, so you can continue on any machine. It always
 asks first.
 
@@ -73,6 +86,7 @@ effort, so deep tutoring gets a strong model and bookkeeping gets a cheap, fast 
 
 | Skill or agent | What it does | Model | Effort |
 |---|---|---|---|
+| `learn` | The entry point: shows where you stand, recommends what to pick up (repo, a short interview, the web), moves into the lab folder and hands over to the skills below | opus | medium |
 | `socratic-tutor` | Runs a learning session: probes what you know, asks, climbs the hint ladder, ends with a summary and open questions | opus | high |
 | `prereq-check` | Before you pick up a track or lab: checks this repo's prerequisites and their Status, then online sources for missing ones; proposes, you decide | opus | high |
 | `plan-lab` | Turns a topic into a lab brief from the template, with prerequisite links, sources, issue drafts and a node in the track graph | opus | high |

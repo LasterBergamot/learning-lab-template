@@ -17,21 +17,21 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  UV["Packaging and environments with uv"]
-  ASYNC["asyncio"]
-  FLASK["Flask"]
-  FAPI["FastAPI"]
-  DJ["Django"]
-  UV --> FLASK
-  FLASK --> FAPI
-  ASYNC --> FAPI
-  FLASK --> DJ
+  packaging_uv["Packaging and environments with uv"]
+  asyncio["asyncio"]
+  flask["Flask"]
+  fastapi["FastAPI"]
+  django["Django"]
+  packaging_uv --> flask
+  flask --> fastapi
+  asyncio --> fastapi
+  flask --> django
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class UV,ASYNC,FLASK,FAPI,DJ todo
+  class packaging_uv,asyncio,flask,fastapi,django todo
 ```
 <!-- roadmap-sync:end -->
 

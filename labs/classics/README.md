@@ -17,17 +17,17 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  HTTPD["An HTTP server from sockets"]
-  KV["A key-value store (log-structured)"]
-  INT["An interpreter"]
-  COMPL["A small compiler"]
-  INT --> COMPL
+  http_server["An HTTP server from sockets"]
+  kv_store["A key-value store (log-structured)"]
+  interpreter["An interpreter"]
+  compiler["A small compiler"]
+  interpreter --> compiler
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class HTTPD,KV,INT,COMPL todo
+  class http_server,kv_store,interpreter,compiler todo
 ```
 <!-- roadmap-sync:end -->
 

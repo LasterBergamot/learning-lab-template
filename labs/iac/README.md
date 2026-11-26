@@ -18,28 +18,28 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  IAC["Declarative, state, drift"]
-  TF["Terraform / OpenTofu on LocalStack"]
-  MOD["Modules and remote state"]
-  PUL["Pulumi"]
-  SST["SST"]
-  ANS["Ansible basics (VM targets)"]
-  ROLE["Ansible roles"]
-  BOTH["Provision + configure together"]
-  IAC --> TF
-  TF --> MOD
-  MOD --> PUL
-  PUL --> SST
-  IAC --> ANS
-  ANS --> ROLE
-  MOD --> BOTH
-  ROLE --> BOTH
+  iac_concepts["Declarative, state, drift"]
+  terraform_opentofu["Terraform / OpenTofu on LocalStack"]
+  modules_state["Modules and remote state"]
+  pulumi["Pulumi"]
+  sst["SST"]
+  ansible["Ansible basics (VM targets)"]
+  ansible_roles["Ansible roles"]
+  terraform_plus_ansible["Provision + configure together"]
+  iac_concepts --> terraform_opentofu
+  terraform_opentofu --> modules_state
+  modules_state --> pulumi
+  pulumi --> sst
+  iac_concepts --> ansible
+  ansible --> ansible_roles
+  modules_state --> terraform_plus_ansible
+  ansible_roles --> terraform_plus_ansible
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class IAC,TF,MOD,PUL,SST,ANS,ROLE,BOTH todo
+  class iac_concepts,terraform_opentofu,modules_state,pulumi,sst,ansible,ansible_roles,terraform_plus_ansible todo
 ```
 <!-- roadmap-sync:end -->
 

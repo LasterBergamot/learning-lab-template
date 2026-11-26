@@ -17,23 +17,23 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  HYP["Hypervisor concepts"]
-  KVM["KVM and QEMU (Linux)"]
-  LV["libvirt"]
-  CI["cloud-init images"]
-  FC["Firecracker microVMs"]
-  HV["Vagrant on libvirt"]
-  HYP --> KVM
-  KVM --> LV
-  LV --> CI
-  KVM --> FC
-  HYP --> HV
+  hypervisors["Hypervisor concepts"]
+  kvm_qemu["KVM and QEMU (Linux)"]
+  libvirt["libvirt"]
+  cloud_init["cloud-init images"]
+  firecracker["Firecracker microVMs"]
+  vagrant_libvirt["Vagrant on libvirt"]
+  hypervisors --> kvm_qemu
+  kvm_qemu --> libvirt
+  libvirt --> cloud_init
+  kvm_qemu --> firecracker
+  hypervisors --> vagrant_libvirt
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class HYP,KVM,LV,CI,FC,HV todo
+  class hypervisors,kvm_qemu,libvirt,cloud_init,firecracker,vagrant_libvirt todo
 ```
 <!-- roadmap-sync:end -->
 

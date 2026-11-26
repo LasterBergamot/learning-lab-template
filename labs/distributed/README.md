@@ -18,29 +18,29 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  FAIL["Fallacies and failure models"]
-  CLK["Clocks and ordering"]
-  CONS["Consistency models"]
-  CAP["CAP and PACELC"]
-  REP["Replication"]
-  RAFT["Consensus: a toy Raft"]
-  IDEM["Idempotency and retries"]
-  SAGA["Sagas"]
-  CRDT["CRDTs and local-first"]
-  FAIL --> CLK
-  CLK --> CONS
-  CONS --> CAP
-  CONS --> REP
-  REP --> RAFT
-  FAIL --> IDEM
-  IDEM --> SAGA
-  CONS --> CRDT
+  failure_models["Fallacies and failure models"]
+  clocks["Clocks and ordering"]
+  consistency_models["Consistency models"]
+  cap_pacelc["CAP and PACELC"]
+  replication["Replication"]
+  raft["Consensus: a toy Raft"]
+  idempotency_retries["Idempotency and retries"]
+  sagas["Sagas"]
+  crdts["CRDTs and local-first"]
+  failure_models --> clocks
+  clocks --> consistency_models
+  consistency_models --> cap_pacelc
+  consistency_models --> replication
+  replication --> raft
+  failure_models --> idempotency_retries
+  idempotency_retries --> sagas
+  consistency_models --> crdts
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class FAIL,CLK,CONS,CAP,REP,RAFT,IDEM,SAGA,CRDT todo
+  class failure_models,clocks,consistency_models,cap_pacelc,replication,raft,idempotency_retries,sagas,crdts todo
 ```
 <!-- roadmap-sync:end -->
 

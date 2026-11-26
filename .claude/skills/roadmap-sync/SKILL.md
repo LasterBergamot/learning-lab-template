@@ -23,8 +23,10 @@ Report what looks stale instead.
   Each one has a line like `**Status:** learning`. The allowed values come from the context
   file (default `todo`, `learning`, `building`, `done`). A missing or unknown value is an error
   to report; treat that lab as `todo`.
-- **Map labs to nodes:** each graph has a table under it linking every node to its lab folder.
-  Use that table. A planned lab with no folder yet counts as `todo`.
+- **Map labs to nodes** by the node-id rule in the context file (default: the lab id with `-`
+  replaced by `_`), against the lab table under each graph. Never match by position. Report a
+  node with no row, or a row with no node, instead of guessing. A planned lab with no folder
+  yet counts as `todo`.
 - **Tracks:** a track node in the root README's graph is `done` when all its labs are `done`,
   `building` when any lab is `building`, `learning` when any lab is `learning` (and none is
   `building`), and `todo` otherwise. The context file may override this rule.

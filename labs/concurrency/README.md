@@ -18,21 +18,21 @@ An arrow means "do this lab first". The colours follow the [legend in the root R
 <!-- roadmap-sync:start -->
 ```mermaid
 flowchart LR
-  THR["Threads and shared memory"]
-  AW["async/await event loops"]
-  ACT["Actors (message passing)"]
-  CSP["CSP: goroutines and channels"]
-  CMP["Compare: one problem, four models"]
-  THR --> CMP
-  AW --> CMP
-  ACT --> CMP
-  CSP --> CMP
+  threads_shared_memory["Threads and shared memory"]
+  async_await["async/await event loops"]
+  actors["Actors (message passing)"]
+  csp_go["CSP: goroutines and channels"]
+  compare["Compare: one problem, four models"]
+  threads_shared_memory --> compare
+  async_await --> compare
+  actors --> compare
+  csp_go --> compare
 
   classDef todo fill:#e5e7eb,color:#111827,stroke:#6b7280
   classDef learning fill:#fde68a,color:#111827,stroke:#b45309
   classDef building fill:#bfdbfe,color:#111827,stroke:#1d4ed8
   classDef done fill:#bbf7d0,color:#111827,stroke:#15803d
-  class THR,AW,ACT,CSP,CMP todo
+  class threads_shared_memory,async_await,actors,csp_go,compare todo
 ```
 <!-- roadmap-sync:end -->
 

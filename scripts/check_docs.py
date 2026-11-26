@@ -9,7 +9,8 @@ Runs the same on Linux (Omarchy or any distro), locally and in CI
 - no `[[...]]` wiki-style link is used (the repo has no wiki);
 - every lab README (`labs/<track>/<lab>/README.md`, not the template) carries a valid
   `**Status:** todo|learning|building|done` line;
-- every track README (`labs/<track>/README.md`) is linked from the root `README.md`.
+- every track README (`labs/<track>/README.md`) is linked from the root `README.md`;
+- every track README's lab graph and lab table name the same labs (node id = lab id, `-` as `_`).
 
 Folders deployed by APM (`.claude/skills`, `.claude/agents`) and
 `apm_modules/` are not checked: they are generated, and fixed upstream in ai-common.
@@ -40,6 +41,9 @@ FENCE = re.compile(r"^(```|~~~).*?^\1[^\n]*$", re.MULTILINE | re.DOTALL)
 INLINE_CODE = re.compile(r"`[^`\n]*`")
 TEMPLATES = (ROOT / "labs" / "_template", ROOT / "assessments" / "_template")
 LINK = re.compile(r"!?\[[^\]\n]*\]\(\s*<?([^)\s>]+)>?(?:\s+\"[^\"]*\")?\s*\)")
+BLOCK = re.compile(r"<!-- roadmap-sync:start -->(.*?)<!-- roadmap-sync:end -->", re.DOTALL)
+GRAPH_NODE = re.compile(r"^\s*([A-Za-z0-9_]+)\[", re.MULTILINE)
+LAB_ROW = re.compile(r"^\|\s*`([^`]+)`:", re.MULTILINE)
 
 
 def markdown_files() -> list[Path]:
@@ -121,6 +125,30 @@ def check_track_links(tracks: list[Path]) -> list[str]:
     return problems
 
 
+def check_graph_tables(tracks: list[Path]) -> list[str]:
+    """Track READMEs whose lab graph and lab table don't name the same labs.
+
+    A node's id is its lab's id with `-` replaced by `_` (lab `ml-math` is node `ml_math`).
+    `scripts/lab-status.py` and the learning skills rely on it to know which labs come first.
+    """
+    problems = []
+    for path in tracks:
+        text = path.read_text(encoding="utf-8")
+        block = BLOCK.search(text)
+        if not block:
+            problems.append(f"{rel(path)}: no <!-- roadmap-sync:start --> block with the lab graph")
+            continue
+        nodes = GRAPH_NODE.findall(block.group(1))
+        rows = {lab.replace("-", "_"): lab for lab in LAB_ROW.findall(text)}
+        for node in nodes:
+            if node not in rows:
+                problems.append(f"{rel(path)}: graph node {node} matches no lab row (node id = lab id with - as _)")
+        for node, lab in rows.items():
+            if node not in nodes:
+                problems.append(f"{rel(path)}: lab {lab} has no graph node {node}")
+    return problems
+
+
 def rel(path: Path) -> str:
     """Repo-relative path with forward slashes."""
     return path.relative_to(ROOT).as_posix()
@@ -139,6 +167,7 @@ def main() -> int:
     lab_readmes = [p for d in track_dirs for p in sorted(d.glob("*/README.md"))]
     problems += check_status(lab_readmes)
     problems += check_track_links(tracks)
+    problems += check_graph_tables(tracks)
 
     for problem in problems:
         print(f"::error::{problem}" if "GITHUB_ACTIONS" in os.environ else problem)
