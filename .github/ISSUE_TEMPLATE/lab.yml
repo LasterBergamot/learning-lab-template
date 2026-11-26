@@ -47,7 +47,6 @@ body:
       label: Platforms to test on
       options:
         - label: Linux / Docker
-        - label: Windows 11 / Podman (Git Bash)
   - type: input
     id: cost
     attributes:
@@ -62,6 +61,6 @@ body:
         - [ ] I can explain <concept> without notes
         - [ ] I built <thing>
         - [ ] I broke it on purpose and fixed it
-        - [ ] Teardown leaves nothing running (`docker`/`podman system df` back to before)
+        - [ ] Teardown leaves nothing running (`docker system df` back to before)
     validations:
       required: true

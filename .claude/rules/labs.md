@@ -31,7 +31,7 @@ Every lab README (`labs/_template/README.md`) has these sections:
   (`- [Title](URL) — what it is for`), official sources first
 
 Right under the title, every lab README has the progress line:
-`**Status:** <todo|learning|building|done> · **Tier:** T<n> · **Tested on:** Linux/Docker ⬜ Windows/Podman ⬜`.
+`**Status:** <todo|learning|building|done> · **Tier:** T<n> · **Tested on:** Linux/Docker ⬜`.
 `scripts/check_docs.py` (CI) fails on a missing or invalid Status. `roadmap-sync` colours the
 graphs in `labs/<track>/README.md` and the root `README.md` from it.
 
@@ -50,19 +50,16 @@ that lab's References section; track-wide sources go into `labs/<track>/README.m
 - Cloud labs use emulators first (LocalStack, Azurite, GCP emulators). For real accounts: a
   budget alert, a per-lab project or account, and `destroy` in the teardown. Never commit
   credentials or state files (`.gitignore` covers `*.tfstate*`, `.terraform/`, keys).
-- Check `docker system df` or `podman system df` before a heavy lab. Heavy labs (OpenShift
-  Local, Spinnaker, Db2, the Android emulator) run on the machine with more RAM and disk
-  (`docs/Isolation.md`, Resource budget).
+- Check `docker system df` before a heavy lab. Heavy labs (OpenShift Local, Spinnaker, Db2, the
+  Android emulator) need enough RAM and disk in the VM (`docs/Isolation.md`, Resource budget).
 
-## Two platforms: Linux/Docker and Windows 11/Podman (Git Bash)
+## Platform: Linux with Docker
 
-The learner's files must work on both. When reviewing or briefing, point out anything that won't:
-- Compose spec only. Run it with `docker compose` or `podman compose`.
-- No `/var/run/docker.sock` mount without a Podman note (the socket path differs).
-- No `network_mode: host`, and no host ports below 1024 (rootless Podman can't bind them).
-- Bind mounts with relative paths; no Windows drive letters, no SELinux `:Z` assumptions.
+The learner's files must work on any Linux machine with Docker (Omarchy in a VM, any other
+distro). When reviewing or briefing, point out anything that won't:
+- Compose spec only, run with `docker compose`.
+- No `network_mode: host`, and no host ports below 1024.
+- Bind mounts with relative paths; no absolute host paths, no SELinux `:Z` assumptions.
 - LF line endings (`.gitattributes`). A CRLF script fails inside a container.
-- Testcontainers on Podman needs `DOCKER_HOST` pointing at the Podman socket (and often Ryuk
-  disabled). Say so in the lab README.
-- Kubernetes via kind: `KIND_EXPERIMENTAL_PROVIDER=podman` on Windows. k3d is Docker-only.
-- The README's "Tested on" boxes are ticked only after a real run on that platform.
+- Kubernetes via kind.
+- The README's "Tested on" box is ticked only after a real run.

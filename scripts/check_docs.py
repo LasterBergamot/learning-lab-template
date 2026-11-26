@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Check learning-lab's Markdown: links, lab Status lines, track links. Stdlib only.
 
-Runs the same on Omarchy (Linux) and Windows 11 (Git Bash), locally and in CI
+Runs the same on Linux (Omarchy or any distro), locally and in CI
 (`.github/workflows/check.yml`). It checks that:
 
 - every relative Markdown link resolves to a file or folder in the repo (web links, anchors,
@@ -122,7 +122,7 @@ def check_track_links(tracks: list[Path]) -> list[str]:
 
 
 def rel(path: Path) -> str:
-    """Repo-relative path with forward slashes, the same on Linux and Windows."""
+    """Repo-relative path with forward slashes."""
     return path.relative_to(ROOT).as_posix()
 
 

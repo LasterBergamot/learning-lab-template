@@ -4,10 +4,10 @@ From a fresh machine to a working learning-lab setup, step by step. People follo
 and so does ai-common's `setup-project` skill. Each step has an **Expected** result. If you
 don't get it, stop and fix that step before you go on.
 
-Two platforms are supported, and every step covers both (see [Platforms](Platforms.md)):
-- **Omarchy (Linux + Docker)**: the Omarchy VM, in bash.
-- **Windows 11 (Git Bash + Podman)**: native Windows, with **Git Bash** as the only shell. No
-  WSL2 distro.
+One platform is supported: **Linux with Docker**, in bash (see [Platforms](Platforms.md)). The
+reference machine is Omarchy running as a Linux VM through Try Omarchy for Windows. Any other
+Arch-based distro works the same way; on other distros the script checks everything and you
+install the system packages with your own package manager.
 
 ## Ground rules
 
@@ -20,15 +20,14 @@ Two platforms are supported, and every step covers both (see [Platforms](Platfor
 
 ## 1. Bootstrap: git and a shell
 
-| Omarchy | Windows 11 |
-|---------|------------|
-| git and bash are already there | Install Git for Windows: with [Chocolatey](https://chocolatey.org/install) if you have it (`choco install git -y` from an elevated shell), otherwise from git-scm.com. If Chocolatey is missing, step 5 installs it. Git for Windows provides Git Bash; use Git Bash for every later step. |
+On Omarchy, git and bash are already there. On another distro, install git with its package
+manager (`sudo pacman -S --needed git` on Arch).
 
 ```bash
 git --version && bash --version | head -1
 ```
 
-**Expected:** both print a version. On Windows, run it in Git Bash.
+**Expected:** both print a version.
 
 ## 2. Clone your repo
 
@@ -39,8 +38,7 @@ git clone git@github.com:<owner>/<repo>.git && cd <repo>
 ```
 
 **Expected:** the clone succeeds and `ls` shows `README.md`, `CLAUDE.md`, `labs/` and `scripts/`.
-Line endings are LF on both platforms (`.gitattributes`); don't change `core.autocrlf` for
-this repo.
+Line endings are LF (`.gitattributes`); don't change `core.autocrlf` for this repo.
 
 ## 3. Check free disk space
 
@@ -48,9 +46,9 @@ this repo.
 df -h ~
 ```
 
-**Expected:** at least 20 GB free. Less is enough for light labs only: free up space, or do
-heavy labs on the bigger machine ([Isolation](Isolation.md)). Record the number in Isolation's
-resource budget.
+**Expected:** at least 20 GB free. Less is enough for light labs only: free up space, or give
+the VM a bigger disk before heavy labs ([Isolation](Isolation.md)). Record the number in
+Isolation's resource budget.
 
 ## 4. Check the prerequisites
 
@@ -58,8 +56,8 @@ resource budget.
 bash scripts/prereqs.sh --check
 ```
 
-It checks git, python, gh, jq, curl, mise, uv, the APM CLI, a container engine with compose,
-kind, kubectl and shellcheck.
+It checks git, python, gh, jq, curl, mise, uv, the APM CLI, Docker with compose, kind, kubectl
+and shellcheck.
 
 **Expected:** a ✓/✗ list and a "Missing" count. Fix the ✗ lines in steps 5–7, then run it again.
 
@@ -69,20 +67,19 @@ kind, kubectl and shellcheck.
 bash scripts/prereqs.sh --install
 ```
 
-- **Omarchy** uses `sudo pacman -S --needed …` (or `yay` for AUR packages) and `mise use -g …`.
-- **Windows 11** uses `choco install … -y` and `mise use -g …`. If Chocolatey is missing, the
-  script first offers the official installer from chocolatey.org. choco needs admin rights: run
-  this from Git Bash opened with "Run as administrator" (the script warns if it isn't).
+- **Omarchy and other Arch-based distros:** `sudo pacman -S --needed …` (or `yay` for AUR
+  packages) and `mise use -g …`.
+- **Other distros:** `mise use -g …` only. For system packages the script prints the Arch package
+  name; install the equivalent with your package manager.
 
 Each command is printed first and runs only after a `y`. Install mise before the tools it
 provides (uv, kind, kubectl, shellcheck, …), then open a new shell and activate it:
 
 ```bash
-echo 'eval "$(mise activate bash)"' >> ~/.bashrc   # both platforms; Git Bash reads ~/.bashrc too
+echo 'eval "$(mise activate bash)"' >> ~/.bashrc
 ```
 
-The APM CLI has no package: on Omarchy `curl -sSL https://aka.ms/apm-unix | sh`. On Windows,
-follow the APM README (microsoft/apm on GitHub).
+The APM CLI has no package: `curl -sSL https://aka.ms/apm-unix | sh`.
 
 **Expected:** after a new shell, `bash scripts/prereqs.sh --check` shows no required tool
 missing (exit code 0).
@@ -97,35 +94,15 @@ gh auth status
 **Expected:** logged in, with the `repo` and `workflow` scopes (`project` too if you use the
 optional board: `gh auth refresh -s project`).
 
-## 7. Container engine
-
-### Omarchy: Docker
+## 7. Container engine: Docker
 
 ```bash
 docker run --rm hello-world && docker compose version
 ```
 
-**Expected:** the hello-world message and a Compose v2 version. If permission is denied, add
-yourself to the `docker` group and log in again.
-
-### Windows 11: Podman on the Hyper-V provider
-
-1. Install Podman Desktop (`bash scripts/prereqs.sh --install` offers it through Chocolatey).
-2. Enable Hyper-V (Windows Features). This needs Windows 11 Pro or Enterprise. On Windows Home,
-   Podman can only use WSL2 as its backend; that's fine, it stays invisible and you still work
-   only in Git Bash.
-3. In Git Bash:
-
-   ```bash
-   echo 'export CONTAINERS_MACHINE_PROVIDER=hyperv' >> ~/.bashrc && source ~/.bashrc
-   podman machine init
-   podman machine start
-   podman run --rm quay.io/podman/hello
-   podman compose version
-   ```
-
-**Expected:** the hello message, and `podman compose` names the compose provider it uses
-(docker-compose or podman-compose). If it has none, install one (Podman Desktop offers it).
+**Expected:** the hello-world message and a Compose v2 version. If the daemon isn't running,
+`sudo systemctl enable --now docker`. If permission is denied, add yourself to the `docker`
+group and log in again.
 
 ## 8. Kubernetes tooling: kind and kubectl
 
@@ -133,8 +110,6 @@ Installed in step 5 through mise. Clusters are created per lab, not here.
 
 ```bash
 kind version && kubectl version --client
-# Windows 11 only, also in ~/.bashrc:
-export KIND_EXPERIMENTAL_PROVIDER=podman
 ```
 
 **Expected:** both print a version.
@@ -146,8 +121,7 @@ line, the `permissions.deny` rules for disk-wiping commands, and the git aliases
 dotfiles work just as well. To use dev-config, clone it next to this repo, then:
 
 ```bash
-bash install.sh       # Omarchy
-./install.ps1         # Windows 11, from PowerShell (it launches Git Bash)
+bash install.sh
 ```
 
 Pick `claude-statusline`, `claude-settings-statusline`, `claude-settings-deny`, and
@@ -194,10 +168,10 @@ works; delete the folder afterwards.
 ## 13. Check the docs tooling
 
 ```bash
-python3 scripts/check_docs.py     # on Windows, python if python3 is not found
+python3 scripts/check_docs.py
 ```
 
-**Expected:** `OK` and exit code 0. CI runs the same check on Linux and Windows.
+**Expected:** `OK` and exit code 0. CI runs the same check.
 
 ## Finish
 

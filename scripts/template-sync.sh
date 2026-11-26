@@ -8,8 +8,8 @@
 #
 # Options: --yes (don't ask before each step), --baseline <commit> (see below).
 #
-# Every step says what it does and prints each command before running it. It runs the same on
-# Linux and in Git Bash on Windows. It needs git; gh is needed only to open and merge the PR.
+# Every step says what it does and prints each command before running it. It needs git; gh is
+# needed only to open and merge the PR.
 #
 # The template's URL is the first non-comment line of .github/template-source. A repo made with
 # "Use this template" shares no history with the template, so the first sync records a baseline:

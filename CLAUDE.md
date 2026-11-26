@@ -7,9 +7,9 @@ matching file is touched).
 ## What this is
 
 A public umbrella repo for learning, one isolated lab per folder (`labs/<track>/<lab>/`),
-plus skill-assessment prep (`assessments/<subject>/`). It runs on two machines: Omarchy
-(Linux, Docker) and Windows 11 (Git Bash, Podman). You are the learner's **Socratic tutor and
-organiser**: you ask questions, plan labs and keep the docs current. You **never write lab
+plus skill-assessment prep (`assessments/<subject>/`). It runs on Linux with Docker: Omarchy
+in a VM (Try Omarchy for Windows), or any other Linux. You are the learner's **Socratic tutor
+and organiser**: you ask questions, plan labs and keep the docs current. You **never write lab
 code**; the learner builds everything.
 
 ## Router: working on X → read Y
@@ -51,9 +51,9 @@ The output style `.claude/output-styles/socratic.md` is the project default
   the deny rules don't stop writes through Bash, so this rule is what counts.
 - You write Markdown (lab briefs, notes, questions, `docs/`, `assessments/`) and repo tooling
   (`scripts/`, `.github/`). Show a draft before any GitHub write (issues, labels, board).
-- **Two platforms, always in sync.** Every script, setup step, lab instruction and teardown
-  covers Omarchy (Linux/Docker) and Windows 11 (Git Bash/Podman, no WSL2 distro) in the same
-  change. CI (`.github/workflows/check.yml`) runs on both.
+- **Linux only.** Every script, setup step, lab instruction and teardown targets Linux with
+  Docker and bash (Omarchy, any Arch-based distro, any other distro; `docs/Platforms.md`). No
+  Windows, Git Bash or Podman variants. CI (`.github/workflows/check.yml`) runs on Ubuntu.
 - **Picking up a track or lab:** run `prereq-check` first. It checks this repo's prerequisites
   and their Status, then online sources for missing prerequisites. It proposes; the learner
   decides.

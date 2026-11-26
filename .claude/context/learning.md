@@ -86,12 +86,11 @@ A new track gets a folder `labs/<id>/` with a `README.md`, a row here, a node in
 
 ## Platforms
 
-- **Linux / Docker:** Omarchy (or another Linux), bash. Its RAM and disk are in
-  `docs/Isolation.md` (Resource budget).
-- **Windows 11 / Podman:** Git Bash only, no WSL2 distro; the Podman machine uses the Hyper-V
-  provider. Heavy labs run on whichever machine has more RAM and disk.
-- Every lab README records "Tested on" for both. Portability rules: `docs/Platforms.md` and `.claude/rules/labs.md`.
-- Every instruction, script and teardown covers both platforms in the same change.
+- **Linux / Docker** only: Omarchy in a VM (Try Omarchy for Windows), any other Arch-based
+  distro, or any other Linux; bash. The VM's RAM and disk are in `docs/Isolation.md` (Resource
+  budget); heavy labs need enough of both.
+- Every lab README records "Tested on: Linux/Docker". Portability rules: `docs/Platforms.md` and
+  `.claude/rules/labs.md`.
 
 ## Session logs
 
@@ -111,7 +110,7 @@ A new track gets a folder `labs/<id>/` with a `README.md`, a row here, a node in
 
 - **Source of truth:** the `**Status:**` line under the title of every lab README, one of
   `todo`, `learning`, `building`, `done`:
-  `**Status:** learning · **Tier:** T1 · **Tested on:** Linux/Docker ✅ Windows/Podman ⬜`.
+  `**Status:** learning · **Tier:** T1 · **Tested on:** Linux/Docker ✅`.
   Milestones map to it: understand → `learning`; build, break, fix → `building`; explain it
   back → `done`. The learner changes it, or `session-log` proposes the change. It is committed
   like any other edit, so it travels with git. GitHub issues, if any, are extras.

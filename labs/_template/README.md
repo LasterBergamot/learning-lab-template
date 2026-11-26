@@ -1,6 +1,6 @@
 # <Lab title>
 
-**Status:** todo · **Tier:** T<n> · **Tested on:** Linux/Docker ⬜ Windows/Podman ⬜
+**Status:** todo · **Tier:** T<n> · **Tested on:** Linux/Docker ⬜
 
 > Track: [`<track id>`](../README.md) · Level: `level:<n>-<name>` · Cost: RAM ~<n> GB, disk ~<n> GB, trial: <none | n days>
 
@@ -46,11 +46,8 @@ Answer these in `NOTES.md` in your own words. Write a guess before looking anyth
 
 - **Tier:** T<n>, <mechanism> (see [Isolation](../../../docs/Isolation.md))
 - **Compose project name / cluster name:** `<track>-<lab>`
-- **Omarchy (Linux/Docker):** <commands and notes specific to this platform>
-- **Windows 11 (Git Bash/Podman):** <socket, ports, provider, anything specific>
-
-Both platforms are kept in sync: a change to one section updates the other in the same commit
-(see [Platforms](../../../docs/Platforms.md)).
+- **Linux/Docker:** <commands and notes specific to this lab: ports, sockets, nested
+  virtualization, anything specific> (see [Platforms](../../../docs/Platforms.md))
 
 ## Teardown
 

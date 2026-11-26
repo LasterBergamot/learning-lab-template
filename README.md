@@ -30,8 +30,8 @@ where you stand (the progress graph), and links to every track and page.
   [APM](https://github.com/microsoft/apm).
 - **Progress lives in the repo.** Each lab README has a `**Status:**` line; the graphs below and
   in each track README follow it ([Progress](#progress)).
-- **Two platforms, always in sync.** Everything works on Omarchy (Linux, Docker) and on
-  Windows 11 (Git Bash, Podman), and every change covers both ([Platforms](docs/Platforms.md)).
+- **Linux with Docker.** Everything runs on Omarchy in a VM (Try Omarchy for Windows) and on
+  any other Arch-based or other Linux distro ([Platforms](docs/Platforms.md)).
 
 ### What the AI writes, and what you write
 
@@ -44,7 +44,7 @@ where you stand (the progress graph), and links to every track and page.
 
 ## Prerequisites
 
-Check what is missing with one command, on either platform:
+Check what is missing with one command:
 
 ```bash
 bash scripts/prereqs.sh --check                  # what is installed, what is missing
@@ -52,10 +52,9 @@ bash scripts/prereqs.sh --check --track identity # plus the tools one track need
 bash scripts/prereqs.sh --install                # installs what is missing, asking per tool
 ```
 
-- **Omarchy (Linux VM):** bash, Docker, mise, uv; packages from pacman.
-- **Windows 11:** Git Bash only (no WSL2 distro), Podman Desktop with the Hyper-V machine
-  provider, mise, uv; packages from Chocolatey.
-- Both: git, gh, jq, shellcheck (lints `scripts/*.sh`) and the APM CLI. Optional: the machine setup
+- **Linux:** bash, Docker with compose, mise, uv; system packages from pacman on Omarchy and
+  other Arch-based distros, or from your own package manager elsewhere.
+- Also: git, gh, jq, shellcheck (lints `scripts/*.sh`) and the APM CLI. Optional: the machine setup
   from [dev-config](https://github.com/LasterBergamot/dev-config) (status line, deny rules, git
   aliases) and ai-common's guard hooks ([Setup](docs/Setup.md) steps 9 and 10).
 
@@ -215,7 +214,7 @@ GitHub's Mermaid renderer disables clickable nodes, so every track README is lin
 | [Concurrency Models](labs/concurrency/README.md) | Threads, async/await, actors and CSP: one problem four ways | JVM or Python |
 | [Mobile](labs/mobile/README.md) | Flutter's declarative UI model across mobile, desktop and web | — |
 | [Containers](labs/containers/README.md) | Containers from scratch, OCI images, Docker and Podman | Foundations |
-| [Virtualization](labs/virtualization/README.md) | Hypervisors, KVM/QEMU, Hyper-V, microVMs | Foundations |
+| [Virtualization](labs/virtualization/README.md) | Hypervisors, KVM/QEMU, Vagrant, microVMs | Foundations |
 | [Orchestration](labs/orchestration/README.md) | Kubernetes, OpenShift, Istio, GitOps, chaos engineering | Containers, Security, Observability |
 | [Observability](labs/observability/README.md) | Logs, metrics and traces with OpenTelemetry, Jaeger, Datadog, Splunk | Containers |
 | [Infrastructure as Code](labs/iac/README.md) | Terraform/OpenTofu, Pulumi, SST and Ansible | Cloud, Virtualization |
@@ -232,9 +231,9 @@ folder looks: [labs/README.md](labs/README.md).
 
 ## Docs
 
-- [Setup](docs/Setup.md): from a fresh machine to a working setup, on both platforms
+- [Setup](docs/Setup.md): from a fresh machine to a working setup
 - [Template](docs/Template.md): the template this repo comes from, and how it stays in sync
-- [Platforms](docs/Platforms.md): what differs between Omarchy/Docker and Windows/Podman, and the rules that keep labs portable
+- [Platforms](docs/Platforms.md): the supported platform (Linux with Docker) and the rules that keep labs portable
 - [Isolation](docs/Isolation.md): isolation tiers T0–T5, resource budget, teardown discipline
 - [How I Learn](docs/How-I-Learn.md): the Socratic method, hint ladder, milestones, the AI skills
 - [Tool Landscape](docs/Tool-Landscape.md): which tools overlap, which to learn first, and the catches
@@ -264,7 +263,7 @@ line each, official sources first.
 ## Working across machines
 
 Everything a session needs lives in the repo, so you can stop on one machine and continue on
-the other.
+another (a fresh VM, a reinstall).
 
 - **Committed:** lab code, compose files and `mise.toml` toolchain pins; `NOTES.md`,
   `QUESTIONS.md`, session logs and Status lines; the review queue and assessments; `apm.yml`,
@@ -283,8 +282,8 @@ learning-lab/
 ├── README.md              this router
 ├── CLAUDE.md              the AI rules and router for Claude Code
 ├── apm.yml, apm.lock.yaml AI skills and agents pinned from ai-common
-├── scripts/               prereqs.sh (both platforms), docs checks, template-sync.sh
-├── .github/               CI on Linux and Windows, issue forms
+├── scripts/               prereqs.sh, docs checks, template-sync.sh
+├── .github/               CI on Linux, issue forms
 ├── .claude/               context files, settings, output style, path rules, deployed skills
 ├── docs/                  cross-cutting pages: setup, platforms, isolation, method, tools
 ├── labs/<track>/          one README per track, one folder per lab (from labs/_template/)
@@ -299,13 +298,13 @@ Each lab names its isolation tier. Details in [Isolation](docs/Isolation.md).
 |---|---|
 | T0 Toolchain | `mise.toml` per lab, a `uv` venv per Python lab |
 | T1 Container | a per-lab compose file with a unique project `name:` |
-| T2 Dev container | `.devcontainer/` (Docker or Podman) |
-| T3 VM | throwaway VMs (KVM/QEMU on Omarchy, Hyper-V on Windows) |
+| T2 Dev container | `.devcontainer/` (Docker) |
+| T3 VM | throwaway VMs (KVM/QEMU, nested inside the Omarchy VM) |
 | T4 Cluster | one kind cluster per lab, deleted after |
 | T5 Cloud | emulators first (LocalStack, Azurite, GCP emulators), then free tiers or trials with a budget alert |
 
 No lab depends on another lab's running state. Every lab has a teardown. Heavy labs (OpenShift
-Local, Spinnaker, Db2, the Android emulator) run on whichever machine has more RAM and disk.
+Local, Spinnaker, Db2, the Android emulator) need enough RAM and disk in the VM.
 
 ## License
 

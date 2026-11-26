@@ -26,8 +26,8 @@ file holds the values. This is a solo learning repo, so the checklist is light.
 2. No secrets, private keys or state files in the diff (`*.key`, `*.pem`, `*.tfstate*`, `.env`).
 3. `python3 scripts/check_docs.py` passes (links, Status lines, track links).
 4. `bash -n scripts/*.sh`, `shellcheck scripts/*.sh` and `jq . .claude/settings.json` succeed.
-5. Both platforms covered: any script, setup step or lab instruction in the diff works on
-   Omarchy (Linux/Docker) and Windows 11 (Git Bash/Podman). CI runs on both.
+5. Linux only: any script, setup step or lab instruction in the diff works on Linux with Docker
+   and bash, with no Windows, Git Bash or Podman variants. CI runs on Ubuntu.
 
 ## Docs
 

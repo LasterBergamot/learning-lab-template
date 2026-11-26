@@ -16,7 +16,6 @@ Short definitions of the terms these pages use. Add a term when a page first use
 | **Compose project** | The group of containers, networks and volumes that one `compose.yml` creates; its `name:` keeps it separate from other labs |
 | **Dev container** | A container that holds a whole development toolchain, described by `.devcontainer/` |
 | **kind** | "Kubernetes in Docker": runs a Kubernetes cluster inside containers (Docker or Podman) |
-| **Podman machine** | The small Linux VM that runs containers for Podman on Windows (Hyper-V or WSL2 backend) |
 | **Rootless containers** | Containers run without root on the host; safer, but they can't bind ports below 1024 |
 | **Emulator (cloud)** | A local imitation of a cloud service, such as LocalStack for AWS, so you can learn without a bill |
 | **IaC** | Infrastructure as Code: describing servers, networks and services in files that a tool applies |

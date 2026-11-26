@@ -13,8 +13,8 @@ faster.
 |---|---|---|---|
 | **T0 Toolchain** | a `mise.toml` per lab (Java, Node, Go, Flutter versions); a `uv` virtual env per Python lab | Language and tool versions | Java concurrency, Flask |
 | **T1 Container** | a per-lab `compose.yml` with a unique top-level `name:` | Processes, networks, volumes; the compose project name scopes all of them | Kafka, IBM MQ, Db2, PocketBase, Jaeger, nginx with TLS |
-| **T2 Dev container** | `.devcontainer/` per lab (works with Docker and Podman) | The whole dev toolchain, when installing it on the host would be messy | Flutter, Django with system dependencies |
-| **T3 VM** | throwaway VMs: QEMU/libvirt on Linux, Hyper-V on Windows | A whole OS, for tools that want to own a host | Dokku, Ansible targets, KVM basics |
+| **T2 Dev container** | `.devcontainer/` per lab (Docker) | The whole dev toolchain, when installing it on the host would be messy | Flutter, Django with system dependencies |
+| **T3 VM** | throwaway VMs: QEMU/libvirt (nested virtualization inside the Omarchy VM) | A whole OS, for tools that want to own a host | Dokku, Ansible targets, KVM basics |
 | **T4 Cluster** | one kind cluster per lab, deleted afterwards | A whole Kubernetes control plane | Kubernetes, Istio, Argo CD, Chaos Mesh |
 | **T5 Cloud** | emulators first (LocalStack, Azurite, GCP emulators), then free tiers or trials | Real cloud resources and bills | AWS, Datadog, Splunk, OpenShift Developer Sandbox |
 
@@ -38,13 +38,13 @@ Record your machines here, with the date you measured free disk: for example "Li
 
 - Light (fits easily): T0 labs, single-container T1 labs, PocketBase, Jaeger.
 - Medium (one at a time): Kafka, Postgres + app, a small kind cluster.
-- Heavy (run on the bigger machine): OpenShift Local (about 9 GB RAM, 35 GB disk; verify), Spinnaker,
+- Heavy (only with enough RAM and disk in the VM): OpenShift Local (about 9 GB RAM, 35 GB disk; verify), Spinnaker,
   Db2 Community, the Android emulator, local LLMs larger than a few GB.
 
 Before starting a medium or heavy lab:
 
 ```bash
-docker system df      # or: podman system df
+docker system df
 ```
 
 ## Teardown discipline
@@ -52,12 +52,11 @@ docker system df      # or: podman system df
 Every lab has a `TEARDOWN.md`. Run it when you finish a session, not just at the end of the
 lab. Typical steps:
 
-- `docker compose down -v` (or the `podman compose` equivalent): stops containers and
+- `docker compose down -v`: stops containers and
   removes the lab's volumes.
 - `kind delete cluster --name <lab>`.
 - Remove the lab's VMs and their disk images.
 - Cloud: `terraform destroy` / `pulumi destroy`, then check the billing console.
-- Occasionally: `docker image prune` / `podman image prune` for images no lab uses any more.
+- Occasionally: `docker image prune` for images no lab uses any more.
 
-A lab is only "done" when its teardown leaves `docker ps -a` and `docker system df` (or the
-Podman equivalents) as they were before the lab started.
+A lab is only "done" when its teardown leaves `docker ps -a` and `docker system df` as they were before the lab started.

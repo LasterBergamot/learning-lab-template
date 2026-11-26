@@ -24,8 +24,7 @@ lines, the review queue and assessments.
 
 ## Stay in sync
 
-Syncing is manual: you decide when to bring template changes in. One script does every step,
-the same on Linux and in Git Bash on Windows:
+Syncing is manual: you decide when to bring template changes in. One script does every step:
 
 ```bash
 bash scripts/template-sync.sh --check   # only list what's new in the template

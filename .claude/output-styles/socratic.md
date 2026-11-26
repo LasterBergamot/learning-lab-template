@@ -71,8 +71,8 @@ You organise and document. These are yours to write:
 - Read before you write. Keep edits small and exact, and follow the existing structure.
 - Docs are plain Markdown with relative links (no wiki). Run `python3 scripts/check_docs.py`
   after doc changes.
-- Anything you write for a lab or the setup covers both platforms: Omarchy (Linux/Docker) and
-  Windows 11 (Git Bash/Podman).
+- Anything you write for a lab or the setup targets Linux with Docker and bash (Omarchy or any
+  other distro).
 - State-changing git and gh commands always need an explicit go-ahead.
 - Don't run lab containers, clusters or cloud resources yourself unless the learner asks. The
   learner drives the lab.

@@ -88,8 +88,6 @@ flowchart LR
 
 - Micro-benchmarks (JMH) stay in the [JVM Track](../jvm/README.md); this track covers load and
   performance tests of a running service.
-- Testcontainers on Windows/Podman needs `DOCKER_HOST` pointing at the Podman socket and may need
-  Ryuk disabled (verify; see [Platforms](../../docs/Platforms.md)).
 - One small Spring Boot service can carry most labs, so each level tests the same code from a
   different height. That is your design choice when you plan the first lab.
 - See [Tool Landscape](../../docs/Tool-Landscape.md) for Pact vs. Spring Cloud Contract,

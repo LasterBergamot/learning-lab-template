@@ -4,7 +4,7 @@ Run these at the end of every session that started something. Check that nothing
 
 ## Before you start the lab
 
-- Note the baseline: the output of `docker system df` or `podman system df`.
+- Note the baseline: the output of `docker system df`.
 
 ## Remove
 
@@ -17,6 +17,6 @@ Run these at the end of every session that started something. Check that nothing
 
 ## Check
 
-- [ ] No containers left: `docker ps -a` or `podman ps -a`, filtered by the project name
-- [ ] Disk back to the baseline: `docker system df` or `podman system df`
+- [ ] No containers left: `docker ps -a`, filtered by the project name
+- [ ] Disk back to the baseline: `docker system df`
 - [ ] For cloud labs: the billing page shows no running resources

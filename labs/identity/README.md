@@ -77,7 +77,7 @@ flowchart LR
 
 ## Notes
 
-- Keycloak runs as a container (T1) on both platforms. Check that your Keycloak version
+- Keycloak runs as a container (T1). Check that your Keycloak version
   supports standard token exchange before the token-exchange lab (verify).
 - The Spring resource server lab assumes the [JVM Track](../jvm/README.md)'s Spring Boot lab.
 - Sender-constrained tokens need the Security Track's mTLS lab.

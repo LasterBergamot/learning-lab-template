@@ -62,7 +62,7 @@ Each session ends with `session-log`. It records what you covered, your explanat
 questions, the online sources you used (into the lab's References section), a proposed
 `**Status:**` change, and any follow-up issues (as drafts you approve). Lab sessions go in the
 lab's `NOTES.md`; assessment sessions go in `assessments/<subject>/sessions/`. It finishes by
-proposing a checkpoint commit and push, so you can continue on the other machine. It always
+proposing a checkpoint commit and push, so you can continue on any machine. It always
 asks first.
 
 ## The AI skills and agents

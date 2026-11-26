@@ -27,7 +27,7 @@ Hunt for:
 - broken relative links, or `[[` wiki-style links
 - track READMEs not linked from the root `README.md`, or missing from `learning.md`
 - stale roadmap-sync blocks (graph classes vs. the labs' Status lines)
-- instructions or scripts that cover only one platform (Omarchy or Windows 11 Git Bash)
+- instructions or scripts that assume Windows, Git Bash or Podman, or a non-Linux host
 - overdue `Review-Queue.md` rows
 - a `CLAUDE.md` over 100 lines
 
@@ -44,4 +44,4 @@ Check:
 - `python3 scripts/check_docs.py`
 - `bash scripts/prereqs.sh --check`
 - `git ls-files | grep -E '\.(key|pem|tfstate)$'`
-- `docker compose -f labs/<track>/<lab>/compose.yml config` (or `podman compose … config`)
+- `docker compose -f labs/<track>/<lab>/compose.yml config`

@@ -31,7 +31,7 @@ template by hand.
 Every lab README has this line right under its title:
 
 ```markdown
-**Status:** learning · **Tier:** T1 · **Tested on:** Linux/Docker ✅ Windows/Podman ⬜
+**Status:** learning · **Tier:** T1 · **Tested on:** Linux/Docker ✅
 ```
 
 `todo` → `learning` → `building` → `done`, following the milestones (see
@@ -44,7 +44,7 @@ CI fails on a missing or invalid one.
 - A lab never depends on another lab's running state. See [Isolation](../docs/Isolation.md).
 - The compose project `name:` and the kind cluster name are `<track>-<lab>`.
 - Private keys, `.env` files and IaC state are git-ignored. Keep it that way.
-- The lab works on both platforms: Omarchy (Linux/Docker) and Windows 11 (Git Bash/Podman).
-  Both are updated in the same commit. See [Platforms](../docs/Platforms.md).
+- The lab works on Linux with Docker (Omarchy or any other distro). See
+  [Platforms](../docs/Platforms.md).
 - Every online source you or the AI used goes into the lab's References section.
-- Commit at the end of each session, so you can continue on the other machine.
+- Commit at the end of each session, so you can continue on any machine.

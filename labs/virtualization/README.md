@@ -1,6 +1,6 @@
 # Virtualization Track
 
-VMs sit under every cloud and under the Podman machine on Windows. Knowing what a hypervisor does explains cloud instance types, nested virtualization and microVMs.
+VMs sit under every cloud, and under the Omarchy VM this repo runs in. Knowing what a hypervisor does explains cloud instance types, nested virtualization and microVMs.
 
 **Durability:** High. Hardware virtualization has been the base of the cloud for twenty years; microVMs are its current direction.
 
@@ -22,7 +22,7 @@ flowchart LR
   LV["libvirt"]
   CI["cloud-init images"]
   FC["Firecracker microVMs"]
-  HV["Hyper-V and Vagrant (Windows)"]
+  HV["Vagrant on libvirt"]
   HYP --> KVM
   KVM --> LV
   LV --> CI
@@ -44,7 +44,7 @@ flowchart LR
 | `libvirt`: libvirt | — | todo |
 | `cloud-init`: cloud-init images | — | todo |
 | `firecracker`: Firecracker microVMs | — | todo |
-| `hyperv-vagrant`: Hyper-V and Vagrant (Windows) | — | todo |
+| `vagrant-libvirt`: Vagrant on libvirt | — | todo |
 
 `plan-lab` creates a lab's folder from [`labs/_template/`](../_template/README.md) when you start it, and fills in the Folder column. Until then the plan above is a proposal you can change. Each lab's own README carries its `**Status:**` line; `roadmap-sync` reads those lines to colour the graph and this table.
 

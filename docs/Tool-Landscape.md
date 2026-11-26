@@ -14,8 +14,8 @@ lengths, licences). Check them before you rely on them.
   PaaS: `git push` and your app runs.
 - **Recommendation:** Kubernetes first, then OpenShift, to see what a distribution adds. Dokku
   fits any time; it is small.
-- **Catch:** OpenShift Local needs about 9 GB RAM and 35 GB disk (verify). Run it on your
-  bigger machine, or use the free Red Hat Developer Sandbox (verify the current terms).
+- **Catch:** OpenShift Local needs about 9 GB RAM and 35 GB disk (verify). Give the VM enough
+  RAM and disk, or use the free Red Hat Developer Sandbox (verify the current terms).
 
 ## Infrastructure as Code: Terraform/OpenTofu, Pulumi, SST, Ansible
 
@@ -47,7 +47,7 @@ lengths, licences). Check them before you rely on them.
   made of about ten microservices. Argo CD is GitOps (the cluster follows a Git repo) and has
   largely taken over in Kubernetes shops.
 - **Recommendation:** Argo CD first. Spinnaker is optional and low priority.
-- **Catch:** Spinnaker is very heavy. Run it on Windows only.
+- **Catch:** Spinnaker is very heavy. Run it only with plenty of RAM and disk in the VM.
 
 ## Chaos engineering: Chaos Monkey vs. Chaos Mesh / Litmus
 
@@ -76,7 +76,6 @@ lengths, licences). Check them before you rely on them.
   shops; Postgres is the open-source default.
 - **Recommendation:** Postgres internals first, then Db2 as a contrast.
 - **Catch:** the Db2 Community image is several GB and needs a privileged container (verify).
-  Prefer Windows.
 
 ## Backend-in-a-box: PocketBase
 
@@ -95,7 +94,7 @@ lengths, licences). Check them before you rely on them.
 - **What they are:** an identity provider (IdP) issues the tokens: Keycloak (open source,
   self-hosted, runs in a container), managed ones (Auth0/Okta, Microsoft Entra ID, AWS Cognito),
   and lighter self-hosted ones (Authentik, Zitadel, Ory).
-- **Recommendation:** Keycloak for the labs. It runs locally on both platforms, implements the
+- **Recommendation:** Keycloak for the labs. It runs locally in a container, implements the
   grants this repo covers (authorization code + PKCE, client credentials, device flow,
   introspection, token exchange) and is common in enterprise Java shops.
 - **Catch:** Keycloak is heavy (a JVM, ~1 GB RAM) and its admin UI hides the protocol. Read the
@@ -124,7 +123,7 @@ lengths, licences). Check them before you rely on them.
 - **Integration: Testcontainers vs. embedded fakes (H2, embedded Kafka).** Fakes are fast but
   differ from the real thing; Testcontainers runs the real service in a container.
   **Recommendation:** Testcontainers for anything with its own behaviour (databases, brokers).
-  **Catch:** needs a container engine; on Windows/Podman set `DOCKER_HOST` (verify Ryuk).
+  **Catch:** needs a running Docker daemon the tests can reach.
 - **Mocks: Mockito vs. hand-written fakes.** Mockito is quick; fakes are clearer for complex
   collaborators. **Recommendation:** learn the test-double taxonomy, then use both on purpose.
   **Catch:** heavy mocking tests the implementation, not the behaviour.

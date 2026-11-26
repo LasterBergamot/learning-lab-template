@@ -21,7 +21,7 @@ flowchart LR
   WID["Widgets and state"]
   DW["Desktop and web targets"]
   NETW["Talking to an API"]
-  AND["Android emulator (Windows)"]
+  AND["Android emulator"]
   DART --> WID
   WID --> DW
   WID --> NETW
@@ -41,13 +41,13 @@ flowchart LR
 | `flutter-widgets-state`: Widgets and state | — | todo |
 | `flutter-desktop-web`: Desktop and web targets | — | todo |
 | `flutter-networking`: Talking to an API | — | todo |
-| `flutter-android`: Android emulator (Windows) | — | todo |
+| `flutter-android`: Android emulator | — | todo |
 
 `plan-lab` creates a lab's folder from [`labs/_template/`](../_template/README.md) when you start it, and fills in the Folder column. Until then the plan above is a proposal you can change. Each lab's own README carries its `**Status:**` line; `roadmap-sync` reads those lines to colour the graph and this table.
 
 ## Notes
 
-The Android emulator needs a lot of disk and RAM, so plan it for Windows ([Isolation](../../docs/Isolation.md)).
+The Android emulator needs a lot of disk and RAM, and KVM (nested virtualization inside the VM), so check the budget first ([Isolation](../../docs/Isolation.md)).
 
 ## References
 

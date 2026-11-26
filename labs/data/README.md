@@ -21,7 +21,7 @@ flowchart LR
   PGI["Postgres internals: MVCC, WAL"]
   IDX["Indexes: B-tree vs. LSM"]
   ISO["Transactions and isolation levels"]
-  DB2["IBM Db2 (Windows)"]
+  DB2["IBM Db2"]
   DUCK["DuckDB and analytics"]
   ICE["Lakehouse with Iceberg"]
   RED["Redis"]
@@ -47,7 +47,7 @@ flowchart LR
 | `postgres-internals`: Postgres internals: MVCC, WAL | — | todo |
 | `indexing`: Indexes: B-tree vs. LSM | — | todo |
 | `isolation-levels`: Transactions and isolation levels | — | todo |
-| `ibm-db2`: IBM Db2 (Windows) | — | todo |
+| `ibm-db2`: IBM Db2 | — | todo |
 | `duckdb`: DuckDB and analytics | — | todo |
 | `iceberg`: Lakehouse with Iceberg | — | todo |
 | `redis`: Redis | — | todo |

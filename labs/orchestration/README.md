@@ -27,7 +27,7 @@ flowchart LR
   OCP["OpenShift"]
   ISTIO["Istio service mesh"]
   CMESH["Chaos engineering with Chaos Mesh"]
-  SPIN["Spinnaker (optional, Windows)"]
+  SPIN["Spinnaker (optional)"]
   CMON["Chaos Monkey (history)"]
   DOKKU["Dokku on a VM"]
   K8S --> KNET
@@ -58,7 +58,7 @@ flowchart LR
 | `openshift`: OpenShift | — | todo |
 | `istio`: Istio service mesh | — | todo |
 | `chaos-mesh`: Chaos engineering with Chaos Mesh | — | todo |
-| `spinnaker`: Spinnaker (optional, Windows) | — | todo |
+| `spinnaker`: Spinnaker (optional) | — | todo |
 | `chaos-monkey`: Chaos Monkey (history) | — | todo |
 | `dokku`: Dokku on a VM | — | todo |
 
